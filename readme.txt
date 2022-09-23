@@ -1,4 +1,4 @@
-=== Integrate Umami Analytics ===
+=== Integrate Umami ===
 Contributors: ancocodet
 Tags: analytics,umami
 Stable tag: 0.1

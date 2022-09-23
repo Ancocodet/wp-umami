@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: Integrate Umami Analytics
+Plugin Name: Integrate Umami
 Description: Integration for Umami Analytics
 Version: 0.1
 Author: Ancocodet
