@@ -1,0 +1,18 @@
+{
+    "name": "ancozockt/umami-integration",
+    "description": "Wordpress Umami Analytics Integration",
+    "type": "wordpress-plugin",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Ancozockt",
+            "email": "info@ancozockt.de"
+        }
+    ],
+    "require": { },
+    "autoload": {
+        "classmap": [
+            "inc/"
+        ]
+    }
+}
