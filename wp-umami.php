@@ -1,13 +1,13 @@
 <?php
 
 /*
-Plugin Name: Umami Integration
+Plugin Name: Integrate Umami Analytics
 Description: Integration for Umami Analytics
 Version: 0.1
 Author: Ancocodet
 Author URI: https://ancozockt.de
 License: GPL
-Text Domain: umami_integration
+Text Domain: integration_umami
 */
 
 namespace Ancozockt\Umami;

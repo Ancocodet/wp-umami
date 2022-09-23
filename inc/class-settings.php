@@ -13,12 +13,12 @@ class Settings {
 	}
 
     public function load_textdomain() {
-        load_plugin_textdomain('umami_integration' );
+        load_plugin_textdomain('integration_umami' );
     }
 
 	public function register_settings(){
 		register_setting(
-                'umami_integration',
+                'integration_umami',
                 'umami_options',
                 array( __CLASS__, 'validate_options' )
         );
@@ -26,10 +26,10 @@ class Settings {
 
 	public function add_page(){
 		add_options_page(
-			__('WP-Umami', 'umami_integration'),
-			__('WP-Umami', 'umami_integration'),
+			__('WP-Umami', 'integration_umami'),
+			__('WP-Umami', 'integration_umami'),
 			'manage_options',
-			'umami_integration',
+			'integration_umami',
 			array( __CLASS__, 'render_options_page' )
 		);
 	}
@@ -53,8 +53,8 @@ class Settings {
 	public function render_options_page() {
         $options = Options::get_options();
 		?>
-		<div class="wrap" id="umami_integration">
-			<h1><?php echo __('WP-Umami Settings', 'umami_integration'); ?></h1>
+		<div class="wrap" id="integration_umami">
+			<h1><?php echo __('WP-Umami Settings', 'integration_umami'); ?></h1>
             <?php include 'templates/settings-page.php'; ?>
 		</div>
 		<?php
