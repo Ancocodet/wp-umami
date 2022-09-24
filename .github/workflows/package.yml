@@ -27,7 +27,7 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Create Package
-        run: zip -r wp-umami.zip -x .github/*
+        run: zip -r wp-umami.zip * -x .github/*
 
       - name: Release
         uses: softprops/action-gh-release@v1
