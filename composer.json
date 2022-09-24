@@ -2,7 +2,7 @@
     "name": "ancozockt/umami-integration",
     "description": "Wordpress Umami Analytics Integration",
     "type": "wordpress-plugin",
-    "license": "GPL",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Ancozockt",
