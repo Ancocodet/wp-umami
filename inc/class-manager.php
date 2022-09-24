@@ -27,15 +27,15 @@ class Manager {
 			$umami_options .= "data-cache=\"true\" ";
 		}
 		if( isset( $options['host_url'] ) && strlen( $options['host_url'] ) > 0 ) {
-			$umami_options .= "data-host=\"" . $options['host_url'] . "\" ";
+			$umami_options .= "data-host=\"" . esc_url($options['host_url']) . "\" ";
 		}
 
 		?>
         <!-- WP-Umami -->
 		<script async defer
-		        src="<?php echo $options['script_url']; ?>"
-		        data-website-id="<?php echo $options['website_id']; ?>"
-		        <?php echo $umami_options; ?>>
+		        src="<?php echo esc_url($options['script_url']); ?>"
+		        data-website-id="<?php esc_attr_e($options['website_id']); ?>"
+		        <?php esc_attr_e($umami_options); ?>>
 		</script>
         <!-- /WP-Umami -->
 		<?php
