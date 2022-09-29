@@ -7,7 +7,7 @@ Version: 0.1
 Author: Ancocodet
 Author URI: https://ancozockt.de
 License: GPL
-Text Domain: integration_umami
+Text Domain: integrate-umami
 */
 
 namespace Ancozockt\Umami;
