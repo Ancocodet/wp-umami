@@ -3,7 +3,7 @@
 **Tags:** analytics,umami
 **Requires at least:** 5.0
 **Tested up to:** 6.0.2
-**Stable tag:** 0.1
+**Stable tag:** 0.1.1
 **Requires PHP:** 7.0
 **License:** GPLv2 or later
 
@@ -13,3 +13,8 @@ Integrate Umami Analytics into your WordPress site.
 
 This plugin integrates [Umami Analytics](https://umami.is/) into your WordPress site. 
 Umami is a simple, fast, website analytics tool for those who care about privacy.
+
+## Changelog ##
+
+0.1.1 - Fix Deployment
+The Deployment does not include the builded zip anymore.
