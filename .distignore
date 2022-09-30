@@ -1,0 +1,8 @@
+/.wordpress-org
+/.git
+/.github
+
+wp-umami.zip
+
+.distignore
+.gitignore
