@@ -1,11 +1,11 @@
 # Integrate Umami #
-**Contributors:** [ancocodet](https://github.com/Ancocodet)
-**Tags:** analytics,umami
-**Requires at least:** 5.0
-**Tested up to:** 6.0.2
-**Stable tag:** 0.1.1
-**Requires PHP:** 7.0
-**License:** GPLv2 or later
+**Contributors:** [ancocodet](https://github.com/Ancocodet) <\br>
+**Tags:** analytics,umami <\br>
+**Requires at least:** 5.0 <\br>
+**Tested up to:** 6.0.2 <\br>
+**Stable tag:** 0.1.1 <\br>
+**Requires PHP:** 7.0 <\br>
+**License:** GPLv2 or later <\br>
 
 Integrate Umami Analytics into your WordPress site.
 
