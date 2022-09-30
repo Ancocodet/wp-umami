@@ -16,5 +16,4 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 ## Changelog ##
 
-0.1.1 - Fix Deployment
-The Deployment does not include the builded zip anymore.
+- **0.1.1 - Fix Deployment** <\br> The Deployment does not include the builded zip anymore.
