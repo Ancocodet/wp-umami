@@ -2,8 +2,16 @@
 
 namespace Ancozockt\Umami;
 
+/**
+ * Class Manager
+ * @since 0.1.0
+ */
 class Manager {
 
+	/**
+	 * @since 0.1.0
+	 * @return void
+	 */
 	public function __construct() {
 		$options = Options::get_options();
 		if ( $options['enabled'] && isset( $options['script_url'] ) && isset( $options['website_id'] ) && ! is_admin() ) {
@@ -13,6 +21,11 @@ class Manager {
 		}
 	}
 
+    /**
+     * @since 0.1.0
+     * @change 0.1.2
+     * @return void
+     */
 	public function render_script() {
 		$options = Options::get_options();
 

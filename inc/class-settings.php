@@ -2,8 +2,16 @@
 
 namespace Ancozockt\Umami;
 
+/**
+ * Class Settings
+ * @since 0.1.0
+ */
 class Settings {
 
+	/**
+	 * @since 0.1.0
+     * @return void
+	 */
 	public function __construct() {
 		if( is_admin() ){
 			add_action( 'admin_init', array( __CLASS__, 'register_settings' ) );
@@ -12,10 +20,19 @@ class Settings {
 		}
 	}
 
+	/**
+	 * @since 0.1.0
+	 * @return void
+	 */
     public function load_textdomain() {
         load_plugin_textdomain( 'integrate-umami' );
     }
 
+
+	/**
+	 * @since 0.1.0
+	 * @return void
+	 */
 	public function register_settings(){
 		register_setting(
                 'integration_umami',
@@ -24,6 +41,10 @@ class Settings {
         );
 	}
 
+	/**
+	 * @since 0.1.0
+	 * @return void
+	 */
 	public function add_page(){
 		add_options_page(
 			__('WP-Umami', 'integrate-umami'),
@@ -34,6 +55,12 @@ class Settings {
 		);
 	}
 
+    /**
+     * @since 0.1.0
+     * @change 0.1.2
+     * @param $data
+     * @return array
+     */
 	public function validate_options( $data ): array {
 		if ( empty( $data ) ) {
 			return array();
@@ -51,6 +78,10 @@ class Settings {
 		);
 	}
 
+	/**
+     * @since 0.1.0
+	 * @return void
+	 */
 	public function render_options_page() {
         $options = Options::get_options();
 		?>

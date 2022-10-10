@@ -5,6 +5,9 @@ namespace Ancozockt\Umami;
 class Options {
 
 	/**
+	 * @since 0.1.0
+	 * @change 0.1.2
+	 *
 	 * @return array
 	 */
 	public static function get_options() : array {

@@ -3,7 +3,7 @@
 /*
 Plugin Name: Integrate Umami
 Description: Integration for Umami Analytics
-Version: 0.1.1
+Version: 0.1.2
 Author: Ancocodet
 Author URI: https://ancozockt.de
 License: GPL
@@ -16,6 +16,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 /**
  * Init plugin.
+ * @since 0.1.0
  * @return void
  */
 function init() {
