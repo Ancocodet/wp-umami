@@ -1,4 +1,9 @@
 <?php
+/**
+ * @package Integrate Umami
+ * @since 0.1.0
+ * @change 0.1.2
+ */
 
 defined( 'ABSPATH' ) || exit;
 ?>
