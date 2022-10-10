@@ -15,6 +15,7 @@ class Options {
 				'script_url' => '',
 				'host_url' => '',
 				'website_id' => '',
+				'ignore_admin' => true,
 				'auto_track' => true,
 				'do_not_track' => true,
 				'cache' => false,

@@ -44,6 +44,7 @@ class Settings {
 			'script_url' => esc_url_raw( $data['script_url'] ),
 			'host_url' => esc_url_raw( $data['script_url'] ),
 			'website_id' => sanitize_text_field( $data['website_id'] ),
+            'ignore_admin' => $data['ignore_admin'] ?? true,
 			'auto_track' => $data['auto_track'] ?? false,
             'do_not_track' => $data['do_not_track'] ?? true,
             'cache' => $data['cache'] ?? false,

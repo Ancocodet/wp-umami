@@ -16,6 +16,10 @@ class Manager {
 	public function render_script() {
 		$options = Options::get_options();
 
+        if( $options['ignore_admin'] && current_user_can( 'manage_options' ) ){
+            return;
+        }
+
 		$umami_options = "";
 		if ( isset( $options['auto_track'] ) && ! $options['auto_track'] ) {
 			$umami_options .= "data-auto-track=\"false\" ";
