@@ -6,7 +6,7 @@ class Options {
 
 	/**
 	 * @since 0.1.0
-	 * @change 0.1.2
+	 * @change 0.1.2 - Added default for ignore_admin.
 	 *
 	 * @return array
 	 */
@@ -18,7 +18,7 @@ class Options {
 				'script_url' => '',
 				'host_url' => '',
 				'website_id' => '',
-				'ignore_admin' => true,
+				'ignore_admins' => true,
 				'auto_track' => true,
 				'do_not_track' => true,
 				'cache' => false,

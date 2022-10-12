@@ -10,7 +10,6 @@ class Manager {
 
 	/**
 	 * @since 0.1.0
-	 * @return void
 	 */
 	public function __construct() {
 		$options = Options::get_options();
@@ -23,13 +22,12 @@ class Manager {
 
     /**
      * @since 0.1.0
-     * @change 0.1.2
-     * @return void
+     * @change 0.1.2 - Added option for ignoring admins.
      */
 	public function render_script() {
 		$options = Options::get_options();
 
-        if( $options['ignore_admin'] && current_user_can( 'manage_options' ) ){
+        if( $options['ignore_admins'] && current_user_can( 'manage_options' ) ){
             return;
         }
 

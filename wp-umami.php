@@ -17,7 +17,6 @@ require_once __DIR__ . '/vendor/autoload.php';
 /**
  * Init plugin.
  * @since 0.1.0
- * @return void
  */
 function init() {
 	new Manager();

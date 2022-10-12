@@ -52,10 +52,10 @@ defined( 'ABSPATH' ) || exit;
 
         <tr>
             <th class="row">
-                <label for="integration_umami_ignore_admin"><?php esc_html_e('Ignore Admins', 'integrate-umami'); ?></label>
+                <label for="integration_umami_ignore_admins"><?php esc_html_e('Ignore Admins', 'integrate-umami'); ?></label>
             </th>
             <td>
-                <input type="checkbox" name="umami_options[ignore_admin]" id="integration_umami_ignore_admin" value="1" <?php checked( $options['ignore_admin'] ); ?> />
+                <input type="checkbox" name="umami_options[ignore_admins]" id="integration_umami_ignore_admins" value="1" <?php checked( $options['ignore_admins'] ); ?> />
                 <p class="description"><?php esc_html_e('Disable tracking for admin users', 'integrate-umami'); ?></p>
             </td>
         </tr>
