@@ -16,5 +16,6 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 ## Changelog ##
 
-- **0.1.1 - Fix Deployment** <br> The Deployment does not include the built zip anymore.
 - **0.2.0 - Ignore Admin Option** <br> Add an option to ignore admin users.
+<br><br>
+- **0.1.1 - Fix Deployment** <br> The Deployment does not include the built zip anymore.
