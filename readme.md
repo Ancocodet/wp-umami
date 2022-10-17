@@ -3,7 +3,7 @@
 **Tags:** analytics,umami <br>
 **Requires at least:** 5.0 <br>
 **Tested up to:** 6.0.2 <br>
-**Stable tag:** 0.1.1 <br>
+**Stable tag:** 0.2.0 <br>
 **Requires PHP:** 7.0 <br>
 **License:** GPLv2 or later <br>
 
@@ -16,4 +16,5 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 ## Changelog ##
 
-- **0.1.1 - Fix Deployment** <br> The Deployment does not include the builded zip anymore.
+- **0.1.1 - Fix Deployment** <br> The Deployment does not include the built zip anymore.
+- **0.2.0 - Ignore Admin Option** <br> Add an option to ignore admin users.
