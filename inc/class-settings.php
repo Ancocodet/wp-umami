@@ -60,26 +60,27 @@ class Settings {
 	}
 
 	/**
-	 * @param $data
+	 * @param array $data
 	 *
 	 * @return array
 	 * @since 0.1.0
 	 * @change 0.2.0 - Added option for ignoring admins.
+     * @change 0.2.1 - Fix option validation.
 	 */
-	public function validate_options( $data ): array {
+	public function validate_options( array $data ): array {
 		if ( empty( $data ) ) {
 			return array();
 		}
 
 		return array(
-			'enabled'       => $data['enabled'] ?? false,
+			'enabled'       => isset( $data['enabled'] ) && 1 === $data['enabled'],
 			'script_url'    => esc_url_raw( $data['script_url'] ),
 			'host_url'      => esc_url_raw( $data['script_url'] ),
 			'website_id'    => sanitize_text_field( $data['website_id'] ),
-			'ignore_admins' => $data['ignore_admins'] ?? true,
-			'auto_track'    => $data['auto_track'] ?? false,
-			'do_not_track'  => $data['do_not_track'] ?? true,
-			'cache'         => $data['cache'] ?? false,
+			'ignore_admins' => ! isset( $data['ignore_admins'] ) || 1 === $data['ignore_admins'],
+			'auto_track'    => isset( $data['auto_track'] ) && 1 === $data['auto_track'],
+			'do_not_track'  => ! isset( $data['do_not_track'] ) || 1 === $data['do_not_track'],
+			'cache'         => ! isset( $data['cache'] ) || 1 === $data['cache'],
 		);
 	}
 
