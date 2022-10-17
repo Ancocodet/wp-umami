@@ -2,7 +2,7 @@
 /**
  * @package Integrate Umami
  * @since 0.1.0
- * @change 0.1.2
+ * @change 0.2.0 - Added option for ignoring admins.
  */
 
 defined( 'ABSPATH' ) || exit;

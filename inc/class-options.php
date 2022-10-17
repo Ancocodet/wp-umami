@@ -6,7 +6,7 @@ class Options {
 
 	/**
 	 * @since 0.1.0
-	 * @change 0.1.2 - Added default for ignore_admin.
+	 * @change 0.2.0 - Added default for ignore_admin.
 	 *
 	 * @return array
 	 */
@@ -24,6 +24,13 @@ class Options {
 				'cache' => false,
 			)
 		);
+	}
+
+	/**
+	 * @since 0.1.2
+	 */
+	public static function delete_options() {
+		delete_option( 'umami_options' );
 	}
 
 }

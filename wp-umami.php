@@ -24,3 +24,4 @@ function init() {
 }
 
 \add_action( 'plugins_loaded', 'Ancozockt\Umami\init' );
+
