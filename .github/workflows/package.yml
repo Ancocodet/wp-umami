@@ -3,12 +3,38 @@ name: Package Plugin
 on:
   push:
     tags: [ '*' ]
+    branch: [ 'master' ]
 
   workflow_dispatch:
 
 jobs:
+  trunk:
+    runs-on: ubuntu-latest
+    if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v3
+        with:
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+      - name: WordPress Plugin Deploy
+        uses: 10up/action-wordpress-plugin-asset-update@stable
+        env:
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SLUG: integrate-umami
+
   package:
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v3
       - name: Validate composer.json and composer.lock
@@ -31,7 +57,6 @@ jobs:
 
       - name: WordPress Plugin Deploy
         uses: nk-o/action-wordpress-plugin-deploy@master
-        if: startsWith(github.ref, 'refs/tags/')
         env:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
@@ -39,7 +64,6 @@ jobs:
 
       - name: Package for Git Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
             wp-umami.zip
