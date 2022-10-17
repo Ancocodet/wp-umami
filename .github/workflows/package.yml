@@ -3,7 +3,7 @@ name: Package Plugin
 on:
   push:
     tags: [ '*' ]
-    branch: [ 'master' ]
+    branches: [ 'master' ]
 
   workflow_dispatch:
 
