@@ -27,7 +27,7 @@ class Options {
 	}
 
 	/**
-	 * @since 0.1.2
+	 * @since 0.2.0 - Delete umami_options.
 	 */
 	public static function delete_options() {
 		delete_option( 'umami_options' );
