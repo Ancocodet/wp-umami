@@ -3,7 +3,7 @@
 /*
 Plugin Name: Integrate Umami
 Description: Integration for Umami Analytics
-Version: 0.2.1
+Version: 0.2.2
 Author: Ancocodet
 Author URI: https://ancozockt.de
 License: GPL

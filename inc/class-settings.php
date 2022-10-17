@@ -73,14 +73,14 @@ class Settings {
 		}
 
 		return array(
-			'enabled'       => isset( $data['enabled'] ) && 1 === $data['enabled'],
+			'enabled'       => (int) ( $data['enabled'] ?? false ),
 			'script_url'    => esc_url_raw( $data['script_url'] ),
 			'host_url'      => esc_url_raw( $data['script_url'] ),
 			'website_id'    => sanitize_text_field( $data['website_id'] ),
-			'ignore_admins' => ! isset( $data['ignore_admins'] ) || 1 === $data['ignore_admins'],
-			'auto_track'    => isset( $data['auto_track'] ) && 1 === $data['auto_track'],
-			'do_not_track'  => ! isset( $data['do_not_track'] ) || 1 === $data['do_not_track'],
-			'cache'         => ! isset( $data['cache'] ) || 1 === $data['cache'],
+			'ignore_admins' => (int) $data['ignore_admins'],
+			'auto_track'    => (int) $data['auto_track'],
+			'do_not_track'  => (int) $data['do_not_track'],
+			'cache'         => (int) $data['cache'],
 		);
 	}
 

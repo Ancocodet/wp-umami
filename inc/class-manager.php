@@ -47,16 +47,16 @@ class Manager {
 		}
 
 		$umami_options = "";
-		if ( isset( $options['auto_track'] ) && ! $options['auto_track'] ) {
+		if ( isset( $options['auto_track'] ) && 0 === $options['auto_track'] ) {
 			$umami_options .= "data-auto-track=\"false\" ";
 		}
-		if ( isset( $options['do_not_track'] ) && $options['do_not_track'] ) {
+		if ( isset( $options['do_not_track'] ) && 1 === $options['do_not_track'] ) {
 			$umami_options .= "data-do-not-track=\"true\" ";
 		}
-		if ( isset( $options['cache'] ) && $options['cache'] ) {
+		if ( isset( $options['cache'] ) && 1 === $options['cache'] ) {
 			$umami_options .= "data-cache=\"true\" ";
 		}
-		if ( isset( $options['host_url'] ) && strlen( $options['host_url'] ) > 0 ) {
+		if ( isset( $options['host_url'] ) && ! empty( $options['host_url'] ) ) {
 			$umami_options .= "data-host=\"" . esc_url( $options['host_url'] ) . "\" ";
 		}
 
