@@ -42,7 +42,7 @@ class Manager {
 	public function render_script() {
 		$options = Options::get_options();
 
-		if ( $options['ignore_admins'] && current_user_can( 'manage_options' ) ) {
+		if ( false !== $options['ignore_admins'] && false !== current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
