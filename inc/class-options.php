@@ -18,14 +18,14 @@ class Options {
 		return wp_parse_args(
 			get_option( 'umami_options' ),
 			array(
-				'enabled'       => false,
+				'enabled'       => 0,
 				'script_url'    => '',
 				'host_url'      => '',
 				'website_id'    => '',
-				'ignore_admins' => true,
-				'auto_track'    => true,
-				'do_not_track'  => true,
-				'cache'         => false,
+				'ignore_admins' => 1,
+				'auto_track'    => 1,
+				'do_not_track'  => 1,
+				'cache'         => 0,
 			)
 		);
 	}
