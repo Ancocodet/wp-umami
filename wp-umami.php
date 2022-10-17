@@ -14,6 +14,9 @@ namespace Ancozockt\Umami;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+define( 'INTEGRATE_UMAMI_VERSION', '0.2.0' );
+define( 'INTEGRATE_UMAMI_BASE_FILE', __FILE__ );
+
 /**
  * Init plugin.
  * @since 0.1.0

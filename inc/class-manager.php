@@ -2,6 +2,10 @@
 
 namespace Ancozockt\Umami;
 
+if( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 /**
  * Class Manager
  * @since 0.1.0
@@ -20,7 +24,7 @@ class Manager {
 			}
 		}
 
-		register_deactivation_hook( __FILE__, array( __CLASS__, 'deactivate' ) );
+		register_deactivation_hook( INTEGRATE_UMAMI_BASE_FILE, array( __CLASS__, 'deactivate' ) );
 	}
 
 	/**

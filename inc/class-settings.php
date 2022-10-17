@@ -2,6 +2,10 @@
 
 namespace Ancozockt\Umami;
 
+if( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Class Settings
  * @since 0.1.0
