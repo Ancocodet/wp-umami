@@ -1,19 +1,24 @@
 <?php
+/**
+ * Class for the settings page.
+ *
+ * @package Integrate Umami
+ */
 
 namespace Ancozockt\Umami;
 
-if( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Class Settings
+ *
  * @since 0.1.0
  */
 class Settings {
 
 	/**
-	 * @return void
 	 * @since 0.1.0
 	 */
 	public function __construct() {
@@ -25,7 +30,8 @@ class Settings {
 	}
 
 	/**
-	 * @return void
+     * Load the plugin textdomain.
+     *
 	 * @since 0.1.0
 	 */
 	public function load_textdomain() {
@@ -34,7 +40,8 @@ class Settings {
 
 
 	/**
-	 * @return void
+     * Register settings
+     *
 	 * @since 0.1.0
 	 */
 	public function register_settings() {
@@ -46,7 +53,8 @@ class Settings {
 	}
 
 	/**
-	 * @return void
+     * Add umami settings page.
+     *
 	 * @since 0.1.0
 	 */
 	public function add_page() {
@@ -60,12 +68,15 @@ class Settings {
 	}
 
 	/**
-	 * @param array $data
-	 *
-	 * @return array
+     * Option validation and sanitization.
+     *
 	 * @since 0.1.0
 	 * @change 0.2.0 - Added option for ignoring admins.
-     * @change 0.2.1 - Fix option validation.
+	 * @change 0.2.1 - Fix option validation.
+     *
+	 * @param array $data
+     *
+	 * @return array
 	 */
 	public function validate_options( array $data ): array {
 		if ( empty( $data ) ) {
@@ -85,8 +96,9 @@ class Settings {
 	}
 
 	/**
-	 * @return void
-	 * @since 0.1.0
+     * Render settings page.
+     *
+     * @since 0.1.0
 	 */
 	public function render_options_page() {
 		$options = Options::get_options();
