@@ -1,0 +1,19 @@
+name: WPCS check
+
+on: pull_request
+
+jobs:
+  phpcs:
+    name: VIPCS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: WP CS Check
+        uses: 10up/wpcs-action@stable
+        with:
+          extra_args: '--report-json=./phpcs.json'
+      - name: Update summary
+        run: |
+          npx --yes github:10up/phpcs-json-to-md --path ./phpcs.json --output ./phpcs.md
+          cat phpcs.md >> $GITHUB_STEP_SUMMARY
+        if: always()
