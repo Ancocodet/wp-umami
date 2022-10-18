@@ -9,6 +9,9 @@ License: GPL
 Text Domain: integrate-umami
 */
 
+/**
+ * @package Ancozockt\Umami
+ */
 namespace Ancozockt\Umami;
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -18,8 +21,8 @@ define( 'INTEGRATE_UMAMI_BASE_FILE', __FILE__ );
 
 /**
  * Init plugin.
- * @since 0.1.0
  *
+ * @since 0.1.0
  */
 function init() {
 	new Manager();
