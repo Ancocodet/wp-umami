@@ -1,17 +1,16 @@
 <?php
 /**
-Plugin Name: Integrate Umami
-Description: Integration for Umami Analytics
-Version: 0.2.2
-Author: Ancocodet
-Author URI: https://ancozockt.de
-License: GPL
-Text Domain: integrate-umami
-*/
-
-/**
- * @package Ancozockt\Umami
+ * Plugin Name: Integrate Umami
+ * Description: Integration for Umami Analytics
+ * Version: 0.2.2
+ * Author: Ancocodet
+ * Author URI: https://ancozockt.de
+ * License: GPL
+ * Text Domain: integrate-umami
+ *
+ * @package Integrate Umami
  */
+
 namespace Ancozockt\Umami;
 
 require_once __DIR__ . '/vendor/autoload.php';
