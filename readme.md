@@ -1,3 +1,4 @@
+  GNU nano 4.8                                                                        readme.md                                                                                   
 # Integrate Umami #
 **Contributors:** [ancocodet](https://github.com/Ancocodet) <br>
 **Tags:** analytics,umami <br>
@@ -11,7 +12,7 @@ Integrate Umami Analytics into your WordPress site.
 
 ## Description ##
 
-This plugin integrates [Umami Analytics](https://umami.is/) into your WordPress site. 
+This plugin integrates [Umami Analytics](https://umami.is/) into your WordPress site.
 Umami is a simple, fast, website analytics tool for those who care about privacy.
 
 ## Changelog ##

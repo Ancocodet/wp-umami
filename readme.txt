@@ -1,3 +1,4 @@
+  GNU nano 4.8                                                                        readme.txt                                                                                  
 === Integrate Umami ===
 Contributors: ancocodet
 Tags: analytics,umami
@@ -11,16 +12,21 @@ Integrate Umami Analytics into your WordPress site.
 
 == Description ==
 
-This plugin integrates [Umami Analytics](https://umami.is/) into your WordPress site. 
+This plugin integrates [Umami Analytics](https://umami.is/) into your WordPress site.
 Umami is a simple, fast, website analytics tool for those who care about privacy.
 
 == Changelog ==
 
-0.2.1 - Fix bug with option validation
-Fixed an issue with the option validation that caused the plugin settings to not work.
+Project and support maintained on github at [ancocodet/wp-umami](https://github.com/Ancocodet/wp-umami).
 
-0.2.0 - Add Ignore Admin Option
-Add an option to ignore admin users.
+= 0.2.1 =
 
-0.1.1 - Fix Deployment
-The deployment does not include the built zip anymore.
+* Fixed an issue with the option validation that caused the plugin settings to not work.
+
+= 0.2.0 =
+
+* Add an option to ignore admin users.
+
+= 0.1.1 =
+
+* The deployment does not include the built zip anymore.
