@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
 Plugin Name: Integrate Umami
 Description: Integration for Umami Analytics
 Version: 0.2.2
@@ -20,6 +19,7 @@ define( 'INTEGRATE_UMAMI_BASE_FILE', __FILE__ );
 /**
  * Init plugin.
  * @since 0.1.0
+ *
  */
 function init() {
 	new Manager();
