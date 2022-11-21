@@ -45,5 +45,4 @@ class Options {
 	public static function delete_options() {
 		delete_option( 'umami_options' );
 	}
-
 }

@@ -1,9 +1,14 @@
 <?php
+/**
+ * Class for managing the options.
+ *
+ * @package Integrate Umami
+ */
 
 namespace Ancozockt\Umami;
 
-if( ! defined( 'ABSPATH' ) ) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
 /**
