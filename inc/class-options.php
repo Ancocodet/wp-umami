@@ -1,11 +1,20 @@
 <?php
-
+/**
+ * Class for managing the options.
+ *
+ * @package Integrate Umami
+ */
 namespace Ancozockt\Umami;
 
-if( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Class Options
+ *
+ * @since 0.1.0
+ */
 class Options {
 
 	/**
