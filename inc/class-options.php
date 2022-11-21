@@ -4,6 +4,7 @@
  *
  * @package Integrate Umami
  */
+
 namespace Ancozockt\Umami;
 
 if ( ! defined( 'ABSPATH' ) ) {
