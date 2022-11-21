@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
   phpcs:
-    name: VIPCS
+    name: PHP CS
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
