@@ -1,18 +1,29 @@
 <?php
+/**
+ * Class for managing the options.
+ *
+ * @package Integrate Umami
+ */
 
 namespace Ancozockt\Umami;
 
-if( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Class Options
+ *
+ * @since 0.1.0
+ */
 class Options {
-
 	/**
-	 * @return array
+	 * Get the options.
+	 *
 	 * @since 0.1.0
 	 * @change 0.2.0 - Added default for ignore_admin.
 	 *
+	 * @return array
 	 */
 	public static function get_options(): array {
 		return wp_parse_args(
@@ -31,10 +42,11 @@ class Options {
 	}
 
 	/**
+	 * Delete the options.
+	 *
 	 * @since 0.2.0 - Delete umami_options.
 	 */
 	public static function delete_options() {
 		delete_option( 'umami_options' );
 	}
-
 }

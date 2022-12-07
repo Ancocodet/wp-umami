@@ -1,14 +1,15 @@
 <?php
-
-/*
-Plugin Name: Integrate Umami
-Description: Integration for Umami Analytics
-Version: 0.2.2
-Author: Ancocodet
-Author URI: https://ancozockt.de
-License: GPL
-Text Domain: integrate-umami
-*/
+/**
+ * Plugin Name: Integrate Umami
+ * Description: Integration for Umami Analytics
+ * Version: 0.2.2
+ * Author: Ancocodet
+ * Author URI: https://ancozockt.de
+ * License: GPL
+ * Text Domain: integrate-umami
+ *
+ * @package Integrate Umami
+ */
 
 namespace Ancozockt\Umami;
 
@@ -19,6 +20,7 @@ define( 'INTEGRATE_UMAMI_BASE_FILE', __FILE__ );
 
 /**
  * Init plugin.
+ *
  * @since 0.1.0
  */
 function init() {

@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<ruleset name="WPUmami">
+    <description>WPUmami coding standard</description>
+
+    <!-- Exclude files and directories. -->
+    <exclude-pattern>/vendor/*</exclude-pattern>
+    <exclude-pattern>/node_modules/*</exclude-pattern>
+    <exclude-pattern>*.js</exclude-pattern>
+    <exclude-pattern>*.css</exclude-pattern>
+
+    <!-- Include the WordPress Coding Standards -->
+    <rule ref="WordPress-Extra">
+        <exclude name="WordPress.WP.I18n.NonSingularStringLiteralText" />
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+        <exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
+    </rule>
+
+    <rule ref="WordPress-Docs">
+        <exclude name="Squiz.Commenting.FileComment.Missing"/>
+    </rule>
+
+    <rule ref="PSR2.Namespaces.NamespaceDeclaration"/>
+    <rule ref="PSR2.Namespaces.UseDeclaration"/>
+
+
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="180" />
+            <property name="absoluteLineLimit" value="180" />
+        </properties>
+    </rule>
+
+    <config name="testVersion" value="7.0-"/>
+    <rule ref="PHPCompatibility">
+        <include-pattern>*\.php$</include-pattern>
+    </rule>
+</ruleset>

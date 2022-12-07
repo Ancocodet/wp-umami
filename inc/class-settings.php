@@ -1,19 +1,20 @@
 <?php
-
 namespace Ancozockt\Umami;
 
-if( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 /**
  * Class Settings
+ *
  * @since 0.1.0
  */
 class Settings {
 
 	/**
-	 * @return void
+	 * Settings constructor.
+	 *
 	 * @since 0.1.0
 	 */
 	public function __construct() {
@@ -25,7 +26,8 @@ class Settings {
 	}
 
 	/**
-	 * @return void
+	 * Load the plugin textdomain.
+	 *
 	 * @since 0.1.0
 	 */
 	public function load_textdomain() {
@@ -34,7 +36,8 @@ class Settings {
 
 
 	/**
-	 * @return void
+	 * Register settings
+	 *
 	 * @since 0.1.0
 	 */
 	public function register_settings() {
@@ -46,7 +49,8 @@ class Settings {
 	}
 
 	/**
-	 * @return void
+	 * Add umami settings page.
+	 *
 	 * @since 0.1.0
 	 */
 	public function add_page() {
@@ -60,12 +64,14 @@ class Settings {
 	}
 
 	/**
-	 * @param array $data
+	 * Option validation and sanitization.
 	 *
-	 * @return array
+	 * @param array $data The data to validate.
+	 *
 	 * @since 0.1.0
-	 * @change 0.2.0 - Added option for ignoring admins.
-     * @change 0.2.1 - Fix option validation.
+	 * @change 0.2.1
+	 *
+	 * @return array The validated data.
 	 */
 	public function validate_options( array $data ): array {
 		if ( empty( $data ) ) {
@@ -85,16 +91,19 @@ class Settings {
 	}
 
 	/**
-	 * @return void
+	 * Render settings page.
+	 *
 	 * @since 0.1.0
 	 */
 	public function render_options_page() {
 		$options = Options::get_options();
+		//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		?>
-        <div class="wrap" id="integration_umami">
-            <h1><?php echo __( 'WP-Umami Settings', 'integrate-umami' ); ?></h1>
-			<?php include 'templates/settings-page.php'; ?>
-        </div>
+
+			<div class="wrap" id="integration_umami">
+				<h1><?php echo esc_html__( 'WP-Umami Settings', 'integrate-umami' ); ?></h1>
+				<?php include 'templates/settings-page.php'; ?>
+			</div>
 		<?php
 	}
 
