@@ -2,9 +2,9 @@
 === Integrate Umami ===
 Contributors: ancocodet
 Tags: analytics,umami
-Stable tag: 0.2.2
+Stable tag: 0.3.0
 Requires at least: 5.0
-Tested up to: 6.0.2
+Tested up to: 6.1.1
 Requires PHP: 7.0
 License: GPLv2 or later
 

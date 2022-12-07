@@ -42,22 +42,23 @@ class Manager {
 	 *
 	 * @since 0.1.0
 	 * @change 0.2.0 - Added option for ignoring admins.
+	 * @change 0.3.0 - Fixed bug with ignore admins option.
 	 */
 	public function render_script() {
 		$options = Options::get_options();
 
-		if ( false !== $options['ignore_admins'] && false !== current_user_can( 'manage_options' ) ) {
+		if ( $options['ignore_admins'] === 1 && current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
 		$umami_options = '';
-		if ( isset( $options['auto_track'] ) && 0 === $options['auto_track'] ) {
+		if ( isset( $options['auto_track'] ) && $options['auto_track'] === 0 ) {
 			$umami_options .= 'data-auto-track="false" ';
 		}
-		if ( isset( $options['do_not_track'] ) && 1 === $options['do_not_track'] ) {
+		if ( isset( $options['do_not_track'] ) && $options['do_not_track'] === 1 ) {
 			$umami_options .= 'data-do-not-track="true" ';
 		}
-		if ( isset( $options['cache'] ) && 1 === $options['cache'] ) {
+		if ( isset( $options['cache'] ) && $options['cache'] === 1 ) {
 			$umami_options .= 'data-cache="true" ';
 		}
 		if ( isset( $options['host_url'] ) && ! empty( $options['host_url'] ) ) {
