@@ -1,4 +1,3 @@
-  GNU nano 4.8                                                                        readme.md                                                                                   
 # Integrate Umami #
 **Contributors:** [ancocodet](https://github.com/Ancocodet) <br>
 **Tags:** analytics,umami <br>
