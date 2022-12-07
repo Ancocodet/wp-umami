@@ -1,4 +1,4 @@
-name: WPCS check
+name: Linting
 
 on: pull_request
 
