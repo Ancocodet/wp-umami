@@ -5,8 +5,10 @@ on: pull_request
 jobs:
   phpcs:
     name: PHP CS
-    runs-on: ubuntu-latest
+    runs-on: thecodingmachine/php:7.4-v4-cli-node16
     steps:
       - uses: actions/checkout@v2
       - name: WP CS Check
-        uses: 10up/wpcs-action@stable
+        run: |
+          composer install
+          ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit true --standard=phpcs.xml

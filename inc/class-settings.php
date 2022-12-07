@@ -1,10 +1,4 @@
 <?php
-/**
- * Class for the settings page.
- *
- * @package Integrate Umami
- */
-
 namespace Ancozockt\Umami;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -72,12 +66,12 @@ class Settings {
 	/**
 	 * Option validation and sanitization.
 	 *
-	 * @param array $data
+	 * @param array $data The data to validate.
 	 *
-	 * @return array
 	 * @since 0.1.0
 	 * @change 0.2.1
 	 *
+	 * @return array The validated data.
 	 */
 	public function validate_options( array $data ): array {
 		if ( empty( $data ) ) {
@@ -106,10 +100,10 @@ class Settings {
 		//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		?>
 
-            <div class="wrap" id="integration_umami">
-                <h1><?php echo __( 'WP-Umami Settings', 'integrate-umami' ); ?></h1>
-			    <?php include 'templates/settings-page.php'; ?>
-            </div>
+			<div class="wrap" id="integration_umami">
+				<h1><?php echo esc_html__( 'WP-Umami Settings', 'integrate-umami' ); ?></h1>
+				<?php include 'templates/settings-page.php'; ?>
+			</div>
 		<?php
 	}
 
