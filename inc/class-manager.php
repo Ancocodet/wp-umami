@@ -65,6 +65,8 @@ class Manager {
 			$umami_options .= 'data-host="' . esc_url( $options['host_url'] ) . '" ';
 		}
 
+		$script_url = esc_url( $options['script_url'] );
+
 		?>
 		<!-- WP-Umami -->
 		<script async defer
