@@ -5,7 +5,7 @@ on: pull_request
 jobs:
   phpcs:
     name: PHP CS
-    runs-on: thecodingmachine/php:7.4-v4-cli-node16
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Setup PHP
