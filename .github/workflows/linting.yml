@@ -14,5 +14,7 @@ jobs:
           php-version: '7.4'
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
-      - name: WP CS Check
+      - name: Check installed cs rules
+        run: vendor/bin/phpcs -i
+      - name: CS Check
         run: ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit true --standard=phpcs.xml

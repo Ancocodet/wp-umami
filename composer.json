@@ -13,9 +13,9 @@
         "php": ">=7.0"
     },
     "require-dev": {
+        "squizlabs/php_codesniffer": "*",
         "dealerdirect/phpcodesniffer-composer-installer": "*",
-        "squizlabs/php_codesniffer": "^3.7.1",
-        "wp-coding-standards/wpcs": "^2.3",
+        "wp-coding-standards/wpcs": "*",
         "phpcompatibility/php-compatibility": "*"
     },
     "autoload": {
@@ -27,5 +27,13 @@
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
+    },
+    "scripts": {
+        "install-codestandards": [
+            "PHPCSStandards\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
+        ],
+        "post-install-cmd": [
+            "@install-codestandards"
+        ]
     }
 }
