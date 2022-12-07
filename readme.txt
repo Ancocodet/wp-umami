@@ -1,4 +1,3 @@
-  GNU nano 4.8                                                                        readme.txt                                                                                  
 === Integrate Umami ===
 Contributors: ancocodet
 Tags: analytics,umami
