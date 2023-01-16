@@ -25,7 +25,7 @@ jobs:
             ${{ runner.os }}-php-
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress
+        run: composer install --prefer-dist --no-progress --no-dev
 
       - name: Create Package
         run: zip -r wp-umami.zip * -x .github/*
