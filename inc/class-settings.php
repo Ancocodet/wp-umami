@@ -99,7 +99,6 @@ class Settings {
 		$options = Options::get_options();
 		//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		?>
-
 			<div class="wrap" id="integration_umami">
 				<h1><?php echo esc_html__( 'WP-Umami Settings', 'integrate-umami' ); ?></h1>
 				<?php include 'templates/settings-page.php'; ?>
