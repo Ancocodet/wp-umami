@@ -3,7 +3,7 @@
 **Tags:** analytics,umami <br>
 **Requires at least:** 5.0 <br>
 **Tested up to:** 6.1.1 <br>
-**Stable tag:** 0.3.0 <br>
+**Stable tag:** 0.3.1 <br>
 **Requires PHP:** 7.0 <br>
 **License:** GPLv2 or later <br>
 
@@ -16,6 +16,10 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 ## Changelog ##
 
+- **0.3.1 - Fix Build Process** <br> Fixed an issue with the building mechanism which resulted in an unusable version
+<br>Cleaned some code
+<br>Replaced the placeholder logo with a better one
+<br><br>
 - **0.2.1 - Fix Option Validation** <br> Fixed an issue with the option validation that caused the plugin settings to not work.
 <br><br>
 - **0.2.0 - Ignore Admin Option** <br> Add an option to ignore admin users.
