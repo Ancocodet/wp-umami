@@ -16,12 +16,13 @@ class Settings {
 	 * Settings constructor.
 	 *
 	 * @since 0.1.0
+     * @change 0.3.3 Fix an issue with hook calls.
 	 */
 	public function __construct() {
 		if ( is_admin() ) {
-			add_action( 'admin_init', array( __CLASS__, 'register_settings' ) );
-			add_action( 'admin_init', array( __CLASS__, 'load_textdomain' ) );
-			add_action( 'admin_menu', array( __CLASS__, 'add_page' ) );
+			add_action( 'admin_init', array( $this, 'register_settings' ) );
+			add_action( 'admin_init', array( $this, 'load_textdomain' ) );
+			add_action( 'admin_menu', array( $this, 'add_page' ) );
 		}
 	}
 
@@ -44,7 +45,7 @@ class Settings {
 		register_setting(
 			'integration_umami',
 			'umami_options',
-			array( __CLASS__, 'validate_options' )
+			array( $this, 'validate_options' )
 		);
 	}
 
@@ -59,7 +60,7 @@ class Settings {
 			__( 'WP-Umami', 'integrate-umami' ),
 			'manage_options',
 			'integration_umami',
-			array( __CLASS__, 'render_options_page' )
+			array( $this, 'render_options_page' )
 		);
 	}
 

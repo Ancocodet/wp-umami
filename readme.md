@@ -3,7 +3,7 @@
 **Tags:** analytics,umami <br>
 **Requires at least:** 5.0 <br>
 **Tested up to:** 6.1.1 <br>
-**Stable tag:** 0.3.2 <br>
+**Stable tag:** 0.3.3 <br>
 **Requires PHP:** 7.0 <br>
 **License:** GPLv2 or later <br>
 

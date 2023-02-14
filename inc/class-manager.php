@@ -21,11 +21,11 @@ class Manager {
 		$options = Options::get_options();
 		if ( $options['enabled'] && isset( $options['script_url'] ) && isset( $options['website_id'] ) && ! is_admin() ) {
 			if ( ! empty( $options['website_id'] ) && ! empty( $options['script_url'] ) ) {
-				add_action( 'wp_footer', array( __CLASS__, 'render_script' ) );
+				add_action( 'wp_footer', array( $this, 'render_script' ) );
 			}
 		}
 
-		register_deactivation_hook( INTEGRATE_UMAMI_BASE_FILE, array( __CLASS__, 'deactivate' ) );
+		register_deactivation_hook( INTEGRATE_UMAMI_BASE_FILE, array( $this, 'deactivate' ) );
 	}
 
 	/**
@@ -64,8 +64,6 @@ class Manager {
 		if ( isset( $options['host_url'] ) && ! empty( $options['host_url'] ) ) {
 			$umami_options .= 'data-host="' . esc_url( $options['host_url'] ) . '" ';
 		}
-
-		$script_url = esc_url( $options['script_url'] );
 
 		?>
 		<!-- WP-Umami -->
