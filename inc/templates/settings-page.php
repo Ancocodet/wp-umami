@@ -7,8 +7,6 @@
  *
  * @package Integrate Umami
  */
-
-defined( 'ABSPATH' ) || exit;
 ?>
 <form method="post" action="options.php" xmlns="http://www.w3.org/1999/html">
 	<?php settings_fields( 'integration_umami' ); ?>

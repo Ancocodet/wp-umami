@@ -3,7 +3,7 @@
 **Tags:** analytics,umami <br>
 **Requires at least:** 5.0 <br>
 **Tested up to:** 6.1.1 <br>
-**Stable tag:** 0.3.1 <br>
+**Stable tag:** 0.3.2 <br>
 **Requires PHP:** 7.0 <br>
 **License:** GPLv2 or later <br>
 
@@ -16,6 +16,8 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 ## Changelog ##
 
+- **0.3.2 - Update Autoloading** <br> Updated the autoloading to use `plugin_dir_path`
+<br><br>
 - **0.3.1 - Fix Build Process** <br> Fixed an issue with the building mechanism which resulted in an unusable version
 <br>Cleaned some code
 <br>Replaced the placeholder logo with a better one

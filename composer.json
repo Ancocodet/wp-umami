@@ -1,5 +1,5 @@
 {
-    "name": "ancozockt/umami-integration",
+    "name": "ancozockt/integrate-umami",
     "description": "Wordpress Umami Analytics Integration",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
