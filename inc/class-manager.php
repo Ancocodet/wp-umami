@@ -33,7 +33,7 @@ class Manager {
 	 *
 	 * @since 0.2.0 - Delete options on deactivation.
 	 */
-	public function deactivate() {
+	public static function deactivate() {
 		Options::delete_options();
 	}
 
