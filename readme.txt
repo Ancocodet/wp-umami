@@ -1,9 +1,9 @@
 === Integrate Umami ===
 Contributors: ancocodet
 Tags: analytics,umami
-Stable tag: 0.3.3
+Stable tag: 0.4.0
 Requires at least: 5.0
-Tested up to: 6.1.1
+Tested up to: 6.2
 Requires PHP: 7.0
 License: GPLv2 or later
 
@@ -17,6 +17,11 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 == Changelog ==
 
 Project and support maintained on github at [ancocodet/wp-umami](https://github.com/Ancocodet/wp-umami).
+
+= 0.4.0 =
+
+* Improved options page to be more user friendly
+* Fixed an issue with the options validation
 
 = 0.3.2 = 
 

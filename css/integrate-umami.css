@@ -1,0 +1,40 @@
+.integrate-umami-url {
+    width: 500px;
+}
+
+.integrate-umami-text {
+    width: 500px;
+}
+
+.integrate-umami-collapsed {
+    padding: 10px;
+    border: solid 1px #8c8f94;
+    border-radius: 4px;
+    background-color: rgba(245, 245, 245, 0.96);
+}
+
+.integrate-umami-collapsed .toggle, .integrate-umami-collapsed .content {
+    display: none;
+}
+
+.integrate-umami-collapsed .toggle-label::after {
+    display: block; content: "\2795";
+    position: absolute; right: 10px; top: 3px;
+    transition: all 0.4s;
+}
+
+.integrate-umami-collapsed .toggle:checked ~ .content {
+    padding: 10px;
+    display: block;
+}
+
+.integrate-umami-collapsed .toggle:checked ~ .toggle-label:after {
+    content: "\2796";
+}
+
+.integrate-umami-collapsed .toggle-label {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+}
