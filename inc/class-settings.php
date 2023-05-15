@@ -56,8 +56,8 @@ class Settings {
 	 */
 	public function add_page() {
 		add_options_page(
-			__( 'WP-Umami', 'integrate-umami' ),
-			__( 'WP-Umami', 'integrate-umami' ),
+			__( 'Integrate Umami', 'integrate-umami' ),
+			__( 'Integrate Umami', 'integrate-umami' ),
 			'manage_options',
 			'integration_umami',
 			array( $this, 'render_options_page' )
@@ -101,7 +101,7 @@ class Settings {
 		//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		?>
 			<div class="wrap" id="integration_umami">
-				<h1><?php echo esc_html__( 'WP-Umami Settings', 'integrate-umami' ); ?></h1>
+				<h1><?php echo esc_html__( 'Integrate Umami Settings', 'integrate-umami' ); ?></h1>
 				<?php include 'templates/settings-page.php'; ?>
 			</div>
 		<?php
