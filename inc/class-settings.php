@@ -16,10 +16,11 @@ class Settings {
 	 * Settings constructor.
 	 *
 	 * @since 0.1.0
-     * @change 0.3.3 Fix an issue with hook calls.
+	 * @change 0.3.3 Fix an issue with hook calls.
 	 */
 	public function __construct() {
 		if ( is_admin() ) {
+			add_action( 'admin_init', array( $this, 'register_styles' ) );
 			add_action( 'admin_init', array( $this, 'register_settings' ) );
 			add_action( 'admin_init', array( $this, 'load_textdomain' ) );
 			add_action( 'admin_menu', array( $this, 'add_page' ) );
@@ -35,6 +36,28 @@ class Settings {
 		load_plugin_textdomain( 'integrate-umami' );
 	}
 
+	/**
+	 * Register styles.
+	 *
+	 * @since 0.4.0
+	 */
+	public function register_styles() {
+		wp_register_style(
+			'integrate-umami-styles',
+			plugins_url( 'css/integrate-umami.css', INTEGRATE_UMAMI_BASE_FILE ),
+			array(),
+			INTEGRATE_UMAMI_VERSION
+		);
+	}
+
+	/**
+	 * Enqueue styles.
+	 *
+	 * @since 0.4.0
+	 */
+	public function enqueue_styles() {
+		wp_enqueue_style( 'integrate-umami-styles' );
+	}
 
 	/**
 	 * Register settings
@@ -53,15 +76,18 @@ class Settings {
 	 * Add umami settings page.
 	 *
 	 * @since 0.1.0
+	 * @change 0.4.0 - Changed page title.
 	 */
 	public function add_page() {
-		add_options_page(
+		$page = add_options_page(
 			__( 'Integrate Umami', 'integrate-umami' ),
 			__( 'Integrate Umami', 'integrate-umami' ),
 			'manage_options',
 			'integration_umami',
 			array( $this, 'render_options_page' )
 		);
+
+		add_action( "admin_print_styles-{$page}", array( $this, 'enqueue_styles' ) );
 	}
 
 	/**
@@ -95,6 +121,7 @@ class Settings {
 	 * Render settings page.
 	 *
 	 * @since 0.1.0
+	 * @change 0.4.0 - Changed page title.
 	 */
 	public function render_options_page() {
 		$options = Options::get_options();
