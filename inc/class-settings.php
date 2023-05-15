@@ -110,10 +110,10 @@ class Settings {
 			'script_url'    => esc_url_raw( $data['script_url'] ),
 			'host_url'      => esc_url_raw( $data['script_url'] ),
 			'website_id'    => sanitize_text_field( $data['website_id'] ),
-			'ignore_admins' => (int) $data['ignore_admins'],
-			'auto_track'    => (int) $data['auto_track'],
-			'do_not_track'  => (int) $data['do_not_track'],
-			'cache'         => (int) $data['cache'],
+			'ignore_admins' => (int) ( $data['ignore_admins'] ?? false ),
+			'auto_track'    => (int) ( $data['auto_track'] ?? false ),
+			'do_not_track'  => (int) ( $data['do_not_track'] ?? false ),
+			'cache'         => (int) ( $data['cache'] ?? false ),
 		);
 	}
 
