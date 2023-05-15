@@ -19,7 +19,7 @@
 			<td>
 				<label for="integration_umami_enabled">
 					<input type="checkbox" name="umami_options[enabled]" id="integration_umami_enabled"
-					       value="1" <?php checked( $options['enabled'] ); ?> />
+						   value="1" <?php checked( $options['enabled'] ); ?> />
 					<?php esc_html_e( 'Enable umami analytics', 'integrate-umami' ); ?>
 				</label>
 			</td>
@@ -71,7 +71,7 @@
 					<td>
 						<label for="integration_umami_ignore_admins">
 							<input type="checkbox" name="umami_options[ignore_admins]" id="integration_umami_ignore_admins"
-							       value="1" <?php checked( $options['ignore_admins'] ); ?> />
+								   value="1" <?php checked( $options['ignore_admins'] ); ?> />
 							<?php esc_html_e( 'Disable tracking for admin users', 'integrate-umami' ); ?>
 						</label>
 					</td>
@@ -84,7 +84,7 @@
 					<td>
 						<label for="integration_umami_auto_track">
 							<input type="checkbox" name="umami_options[auto_track]" id="integration_umami_auto_track"
-							       value="1" <?php checked( $options['auto_track'] ); ?> />
+								   value="1" <?php checked( $options['auto_track'] ); ?> />
 							<?php esc_html_e( 'Enable the automatic events and pageviews tracking', 'integrate-umami' ); ?>
 							<p class="description">
 								<?php
@@ -130,7 +130,7 @@
 					<td>
 						<label for="integration_umami_cache">
 							<input type="checkbox" name="umami_options[cache]" id="integration_umami_cache"
-							       value="1" <?php checked( $options['cache'] ); ?> />
+								   value="1" <?php checked( $options['cache'] ); ?> />
 							<?php esc_html_e( 'Enable caching of tracking data for better performance', 'integrate-umami' ); ?>
 							<p class="description">
 								<?php
