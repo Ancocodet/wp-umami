@@ -85,7 +85,16 @@
 			<td>
 				<input type="checkbox" name="umami_options[do_not_track]" id="integration_umami_do_not_track"
 					   value="1" <?php checked( $options['do_not_track'] ); ?> />
-				<p class="description"><?php echo esc_html__( 'Respect visitor`s <b>Do Not Track</b> setting', 'integrate-umami' ); ?></p>
+				<p class="description">
+				<?php
+				echo wp_kses(
+					__( 'Respect visitor`s <b>Do Not Track</b> setting', 'integrate-umami' ),
+					[
+						'b' => [],
+					]
+				);
+				?>
+				</p>
 			</td>
 		</tr>
 
