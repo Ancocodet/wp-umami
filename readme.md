@@ -3,7 +3,7 @@
 **Tags:** analytics,umami <br>
 **Requires at least:** 5.0 <br>
 **Tested up to:** 6.2 <br>
-**Stable tag:** 0.4.0 <br>
+**Stable tag:** 0.4.1 <br>
 **Requires PHP:** 7.0 <br>
 **License:** GPLv2 or later <br>
 
@@ -15,6 +15,12 @@ This plugin integrates [Umami Analytics](https://umami.is/) into your WordPress 
 Umami is a simple, fast, website analytics tool for those who care about privacy.
 
 ## Changelog ##
+
+- **0.4.1** - Host URL Issue <br>
+<br>Fixed an issue with the host URL which could cause issues with the tracking.
+<br>Moved the host URL option to the advanced section
+<br>Thanks to @gioxx for reporting the issue
+<br><br>
 
 - **0.4.0** - Improve Settings Page <br> The settings page has been improved to be more user friendly.
 <br>Fixed an issue with the options validation

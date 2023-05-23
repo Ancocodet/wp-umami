@@ -33,6 +33,7 @@ class Options {
 				'script_url'    => '',
 				'host_url'      => '',
 				'website_id'    => '',
+				'use_host_url'  => 0,
 				'ignore_admins' => 1,
 				'auto_track'    => 1,
 				'do_not_track'  => 1,

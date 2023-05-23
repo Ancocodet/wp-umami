@@ -43,6 +43,7 @@ class Manager {
 	 * @since 0.1.0
 	 * @change 0.2.0 - Added option for ignoring admins.
 	 * @change 0.3.0 - Fixed bug with ignore admins option.
+	 * @change 0.4.1 - Fix bug with host url option.
 	 */
 	public function render_script() {
 		$options = Options::get_options();
@@ -61,8 +62,8 @@ class Manager {
 		if ( isset( $options['cache'] ) && $options['cache'] === 1 ) {
 			$umami_options .= 'data-cache="true" ';
 		}
-		if ( ! empty( $options['host_url'] ) ) {
-			$umami_options .= 'data-host="' . esc_url( $options['host_url'] ) . '" ';
+		if ( ! empty( $options['host_url'] ) && isset( $options['use_host_url'] ) && $options['use_host_url'] === 1 ) {
+			$umami_options .= 'data-host-url="' . esc_url( $options['host_url'] ) . '" ';
 		}
 
 		?>

@@ -38,17 +38,6 @@
 
 		<tr>
 			<th scope="row">
-				<?php esc_html_e( 'Host Url', 'integrate-umami' ); ?>
-			</th>
-			<td>
-				<input class="integrate-umami-url" type="url" name="umami_options[host_url]" id="integration_umami_host_url"
-					   value="<?php echo esc_attr( $options['host_url'] ); ?>"/>
-				<p class="description"><?php esc_html_e( 'The url to your umami instanace', 'integrate-umami' ); ?></p>
-			</td>
-		</tr>
-
-		<tr>
-			<th scope="row">
 				<?php esc_html_e( 'Website ID', 'integrate-umami' ); ?>
 			</th>
 			<td>
@@ -64,6 +53,37 @@
 		<label class="toggle-label" for="advanced-options"><?php esc_html_e( 'Advanced Options', 'integrate-umami' ); ?></label>
 		<div class="content">
 			<table class="form-table">
+				<tr>
+					<th scope="row">
+						<?php esc_html_e( 'Host Url', 'integrate-umami' ); ?>
+					</th>
+					<td>
+						<input class="integrate-umami-url" type="url" name="umami_options[host_url]" id="integration_umami_host_url"
+							   value="<?php echo esc_attr( $options['host_url'] ); ?>"/>
+						<?php
+						echo wp_kses(
+							__( 'The URL of the Umami instance <b>if it is different from the URL to the script.</b>', 'integrate-umami' ),
+							[
+								'b' => [],
+							]
+						);
+						?>
+					</td>
+				</tr>
+
+                <tr>
+                    <th class="row">
+						<?php esc_html_e( 'Use Host Url', 'integrate-umami' ); ?>
+                    </th>
+                    <td>
+                        <label for="integration_umami_use_host_url">
+                            <input type="checkbox" name="umami_options[use_host_url]" id="integration_umami_use_host_url"
+                                   value="1" <?php checked( $options['use_host_url'] ); ?> />
+							<?php esc_html_e( 'Use Host Url as data target', 'integrate-umami' ); ?>
+                        </label>
+                    </td>
+                </tr>
+
 				<tr>
 					<th class="row">
 						<?php esc_html_e( 'Ignore Admins', 'integrate-umami' ); ?>
