@@ -81,7 +81,6 @@
 						<label for="integration_umami_use_host_url">
 							<input type="checkbox" name="umami_options[use_host_url]" id="integration_umami_use_host_url"
 								   value="1" <?php checked( $options['use_host_url'] ); ?> />
-                            <p class="description">
 							<?php
 							echo wp_kses(
 								__( 'Use Host Url as data target. <a href="https://umami.is/docs/tracker-configuration">More information</a>', 'integrate-umami' ),
@@ -92,7 +91,6 @@
 								]
 							);
 							?>
-                            </p>
 						</label>
 					</td>
 				</tr>
