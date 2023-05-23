@@ -71,18 +71,28 @@
 					</td>
 				</tr>
 
-                <tr>
-                    <th class="row">
+				<tr>
+					<th class="row">
 						<?php esc_html_e( 'Use Host Url', 'integrate-umami' ); ?>
-                    </th>
-                    <td>
-                        <label for="integration_umami_use_host_url">
-                            <input type="checkbox" name="umami_options[use_host_url]" id="integration_umami_use_host_url"
-                                   value="1" <?php checked( $options['use_host_url'] ); ?> />
-							<?php esc_html_e( 'Use Host Url as data target', 'integrate-umami' ); ?>
-                        </label>
-                    </td>
-                </tr>
+					</th>
+					<td>
+						<label for="integration_umami_use_host_url">
+							<input type="checkbox" name="umami_options[use_host_url]" id="integration_umami_use_host_url"
+								   value="1" <?php checked( $options['use_host_url'] ); ?> />
+							<?php esc_html_e( 'Use Host Url as data target ', 'integrate-umami' ); ?>
+							<?php
+							echo wp_kses(
+								__( 'Use Host Url as data target. <a href="https://umami.is/docs/tracker-configuration">More information</a>', 'integrate-umami' ),
+								[
+									'a' => [
+										'href' => [],
+									],
+								]
+							);
+							?>
+						</label>
+					</td>
+				</tr>
 
 				<tr>
 					<th class="row">
