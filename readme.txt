@@ -1,11 +1,12 @@
 === Integrate Umami ===
 Contributors: ancocodet
 Tags: analytics,umami
-Stable tag: 0.4.2
+Stable tag: 0.5.0
 Requires at least: 5.0
 Tested up to: 6.2
 Requires PHP: 7.0
-License: GPLv2 or later
+License: GPLv3 or later
+License URI: https://github.com/Ancocodet/wp-umami/blob/main/LICENSE.md
 
 Integrate Umami Analytics into your WordPress site.
 
@@ -14,9 +15,17 @@ Integrate Umami Analytics into your WordPress site.
 This plugin integrates [Umami Analytics](https://umami.is/) into your WordPress site.
 Umami is a simple, fast, website analytics tool for those who care about privacy.
 
-== Changelog ==
+== Contribute ==
 
-Project and support maintained on github at [ancocodet/wp-umami](https://github.com/Ancocodet/wp-umami).
+* Active Development of this plugin is handled [on Github](https://github.com/Ancocodet/wp-umami).
+* Pull requests for documented [issues](https://github.com/Ancocodet/wp-umami/issues) are highly appreciated.
+
+== Upgrade Notice ==
+
+= 0.4.1 =
+Issues with the settings page were fixed and the overall feeling of the page was improved as well.
+
+== Changelog ==
 
 = 0.4.1 =
 * Fixed an issue with the host URL which could cause issues with the tracking.
