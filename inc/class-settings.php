@@ -30,23 +30,26 @@ class Settings {
 
 	/**
 	 * Add plugin actions.
-	 * 
+	 *
+	 * @param array $links Current link values.
+	 *
 	 * @since 0.5.0
+	 *
+	 * @return array Manipulated array of links.
 	 */
-	public function plugin_actions( array $links ) {
-		$url = esc_url( add_query_arg(
-			'page',
-			'integration-umami',
-			get_admin_url() . 'options-general.php'
-		) );
+	public function plugin_actions( array $links ): array {
+		$url = esc_url(
+			add_query_arg(
+				'page',
+				'integration-umami',
+				get_admin_url() . 'options-general.php'
+			)
+		);
 
 		$settings_link = "<a href='$url'>" . __( 'Settings' ) . '</a>';
 
-		array_push(
-			$links,
-			$settings_link
-		);
-		
+		$links[] = $settings_link;
+
 		return $links;
 	}
 
