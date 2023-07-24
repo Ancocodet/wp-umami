@@ -25,6 +25,29 @@ class Settings {
 			add_action( 'admin_init', array( $this, 'load_textdomain' ) );
 			add_action( 'admin_menu', array( $this, 'add_page' ) );
 		}
+		add_action( 'plugin_action_links_integrate-umami/wp-umami.php', array( $this, 'plugin_actions' ) );
+	}
+
+	/**
+	 * Add plugin actions.
+	 * 
+	 * @since 0.5.0
+	 */
+	public function plugin_actions( array $links ) {
+		$url = esc_url( add_query_arg(
+			'page',
+			'integration-umami',
+			get_admin_url() . 'options-general.php'
+		) );
+
+		$settings_link = "<a href='$url'>" . __( 'Settings' ) . '</a>';
+
+		array_push(
+			$links,
+			$settings_link
+		);
+		
+		return $links;
 	}
 
 	/**
