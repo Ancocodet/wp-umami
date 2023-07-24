@@ -41,7 +41,7 @@ class Settings {
 		$url = esc_url(
 			add_query_arg(
 				'page',
-				'integration-umami',
+				'integration_umami',
 				get_admin_url() . 'options-general.php'
 			)
 		);
