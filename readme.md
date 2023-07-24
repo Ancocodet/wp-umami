@@ -15,6 +15,22 @@ Integrate Umami Analytics into your WordPress site.
 This plugin integrates [Umami Analytics](https://umami.is/) into your WordPress site.
 Umami is a simple, fast, website analytics tool for those who care about privacy.
 
+## Installation ##
+
+* If you don’t know how to install a plugin for WordPress, here’s how.
+
+### Setup Tracking ###
+1. [Add your wordpress to umami](https://umami.is/docs/add-a-website)
+2. Go to the Plugin Settings
+3. Fill in the websiteId and ScriptUrl
+   * websiteId can be found in the website settings
+   * scriptUrl is normally %link_to_umami%/script.js or you can found in the website settings under tracking code
+4. Enable umami analytics and save your settings
+
+### Requirements ###
+* PHP 7.0 or greater
+* WordPress 5.0 or greater
+
 ## Contribute ##
 
 * Active Development of this plugin is handled [on Github](https://github.com/Ancocodet/wp-umami).
@@ -26,6 +42,10 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 Issues with the settings page were fixed and the overall feeling of the page was improved as well.
 
 ## Changelog ##
+
+- **0.5.0** - Documentation and plugin action<br>
+* Added link to Settings Page to Plugin actions
+* Updated and expanded documentation
 
 - **0.4.1** - Host URL Issue <br>
 <br>Fixed an issue with the host URL which could cause issues with the tracking.
