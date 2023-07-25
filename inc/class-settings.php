@@ -17,6 +17,7 @@ class Settings {
 	 *
 	 * @since 0.1.0
 	 * @change 0.3.3 Fix an issue with hook calls.
+	 * @change 0.5.0 Added plugin action links.
 	 */
 	public function __construct() {
 		if ( is_admin() ) {
@@ -41,7 +42,7 @@ class Settings {
 		$url = esc_url(
 			add_query_arg(
 				'page',
-				'integration_umami',
+				'integrate-umami',
 				get_admin_url() . 'options-general.php'
 			)
 		);
@@ -103,13 +104,14 @@ class Settings {
 	 *
 	 * @since 0.1.0
 	 * @change 0.4.0 - Changed page title.
+	 * @change 0.5.0 Change page name to plugin slug.
 	 */
 	public function add_page() {
 		$page = add_options_page(
 			__( 'Integrate Umami', 'integrate-umami' ),
 			__( 'Integrate Umami', 'integrate-umami' ),
 			'manage_options',
-			'integration_umami',
+			'integrate-umami',
 			array( $this, 'render_options_page' )
 		);
 
@@ -155,7 +157,7 @@ class Settings {
 		$options = Options::get_options();
 		//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		?>
-			<div class="wrap" id="integration_umami">
+			<div class="wrap" id="integrate-umami">
 				<h1><?php echo esc_html__( 'Integrate Umami Settings', 'integrate-umami' ); ?></h1>
 				<?php include 'templates/settings-page.php'; ?>
 			</div>
