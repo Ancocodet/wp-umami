@@ -61,7 +61,7 @@ class Manager {
 			$umami_options .= 'data-cache=true ';
 		}
 		if ( ! empty( $options['host_url'] ) && isset( $options['use_host_url'] ) && $options['use_host_url'] === 1 ) {
-			$umami_options .= 'data-host-url=' . esc_url( $options['host_url'] ) . ' ';
+			$umami_options .= 'data-host-url=' . esc_url( $options['host_url'] );
 		}
 
 		?>
