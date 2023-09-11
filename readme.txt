@@ -3,7 +3,7 @@ Contributors: ancocodet
 Tags: analytics,umami
 Stable tag: 0.5.0
 Requires at least: 5.0
-Tested up to: 6.2
+Tested up to: 6.3.1
 Requires PHP: 7.0
 License: GPLv3 or later
 License URI: https://github.com/Ancocodet/wp-umami/blob/main/LICENSE.md
@@ -46,6 +46,7 @@ Issues with the settings page were fixed and the overall feeling of the page was
 = 0.5.0 =
 * Added link to Settings Page to Plugin actions
 * Updated and expanded documentation
+* Fixed issue with escaping in script arguments
 
 = 0.4.1 =
 * Fixed an issue with the host URL which could cause issues with the tracking.

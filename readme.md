@@ -2,7 +2,7 @@
 **Contributors:** [ancocodet](https://github.com/Ancocodet) <br>
 **Tags:** analytics,umami <br>
 **Requires at least:** 5.0 <br>
-**Tested up to:** 6.2 <br>
+**Tested up to:** 6.3.1 <br>
 **Stable tag:** 0.5.0 <br>
 **Requires PHP:** 7.0 <br>
 **License:** GPLv3 or later <br>
@@ -44,8 +44,10 @@ Issues with the settings page were fixed and the overall feeling of the page was
 ## Changelog ##
 
 - **0.5.0** - Documentation and plugin action<br>
-* Added link to Settings Page to Plugin actions
-* Updated and expanded documentation
+<br>Added link to Settings Page to Plugin actions
+<br>Updated and expanded documentation
+<br>Fixed issue with escaping in script arguments
+<br><br>
 
 - **0.4.1** - Host URL Issue <br>
 <br>Fixed an issue with the host URL which could cause issues with the tracking.
