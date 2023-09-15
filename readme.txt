@@ -45,6 +45,7 @@ Issues with the settings page were fixed and the overall feeling of the page was
 
 = 0.5.0 =
 * Added link to Settings Page to Plugin actions
+* Change Settings page slug to plugin slug
 * Updated and expanded documentation
 * Fixed issue with escaping in script arguments
 

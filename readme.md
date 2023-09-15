@@ -45,6 +45,7 @@ Issues with the settings page were fixed and the overall feeling of the page was
 
 - **0.5.0** - Documentation and plugin action<br>
 <br>Added link to Settings Page to Plugin actions
+<br>Change Settings page slug to plugin slug (**integrate-umami**)
 <br>Updated and expanded documentation
 <br>Fixed issue with escaping in script arguments
 <br><br>
