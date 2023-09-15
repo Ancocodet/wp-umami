@@ -54,6 +54,9 @@ class Manager {
 		}
 
 		$umami_options = '';
+		if ( isset( $options['do_not_track'] ) && $options['do_not_track'] === 1 ) {
+			$umami_options .= 'data-do-not-track=true';
+		}
 		if ( isset( $options['auto_track'] ) && $options['auto_track'] === 0 ) {
 			$umami_options .= 'data-auto-track=false ';
 		}
