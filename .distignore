@@ -3,6 +3,7 @@
 /.github
 
 wp-umami.zip
+integrate-umami.zip
 
 .distignore
 .gitignore

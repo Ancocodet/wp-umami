@@ -22,16 +22,15 @@ jobs:
           path: vendor
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            ${{ runner.os }}-php-
+            ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-dev
 
-      - name: Create Package
-        run: zip -r wp-umami.zip * -x .github/*
-
       - name: WordPress Plugin Deploy
-        uses: nk-o/action-wordpress-plugin-deploy@master
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        with:
+          generate-zip: true
         env:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
@@ -40,5 +39,4 @@ jobs:
       - name: Package for Git Release
         uses: softprops/action-gh-release@v1
         with:
-          files: |
-            wp-umami.zip
+          files: ${{ steps.deploy.outputs.zip-path }}/integrate-umami.zip

@@ -44,6 +44,7 @@ class Manager {
 	 * @change 0.2.0 - Added option for ignoring admins.
 	 * @change 0.3.0 - Fixed bug with ignore admins option.
 	 * @change 0.4.1 - Fix bug with host url option.
+	 * @change 0.5.0 - Fix problem with option escaping.
 	 */
 	public function render_script() {
 		$options = Options::get_options();
@@ -53,17 +54,17 @@ class Manager {
 		}
 
 		$umami_options = '';
-		if ( isset( $options['auto_track'] ) && $options['auto_track'] === 0 ) {
-			$umami_options .= 'data-auto-track="false" ';
-		}
 		if ( isset( $options['do_not_track'] ) && $options['do_not_track'] === 1 ) {
-			$umami_options .= 'data-do-not-track="true" ';
+			$umami_options .= 'data-do-not-track=true ';
+		}
+		if ( isset( $options['auto_track'] ) && $options['auto_track'] === 0 ) {
+			$umami_options .= 'data-auto-track=false ';
 		}
 		if ( isset( $options['cache'] ) && $options['cache'] === 1 ) {
-			$umami_options .= 'data-cache="true" ';
+			$umami_options .= 'data-cache=true ';
 		}
 		if ( ! empty( $options['host_url'] ) && isset( $options['use_host_url'] ) && $options['use_host_url'] === 1 ) {
-			$umami_options .= 'data-host-url="' . esc_url( $options['host_url'] ) . '" ';
+			$umami_options .= 'data-host-url=' . esc_url( $options['host_url'] );
 		}
 
 		?>
@@ -71,7 +72,7 @@ class Manager {
 		<script async defer
 				src="<?php echo esc_url( $options['script_url'] ); ?>"
 				data-website-id="<?php esc_attr_e( $options['website_id'] ); ?>"
-			<?php esc_attr_e( $umami_options ); ?>>
+				<?php esc_attr_e( $umami_options ); ?>>
 		</script>
 		<!-- /WP-Umami -->
 		<?php
