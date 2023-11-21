@@ -2,8 +2,8 @@
 **Contributors:** [ancocodet](https://github.com/Ancocodet) <br>
 **Tags:** analytics,umami <br>
 **Requires at least:** 5.0 <br>
-**Tested up to:** 6.3.1 <br>
-**Stable tag:** 0.5.0 <br>
+**Tested up to:** 6.4 <br>
+**Stable tag:** 0.6.0 <br>
 **Requires PHP:** 7.0 <br>
 **License:** GPLv3 or later <br>
 **License URI:** https://github.com/Ancocodet/wp-umami/blob/main/LICENSE.md <br>
@@ -42,6 +42,10 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 Issues with the settings page were fixed and the overall feeling of the page was improved as well.
 
 ## Changelog ##
+
+- **0.6.0** - Event Tracking<br>
+<br>Added tracking data-attribute for comments
+<br><br>
 
 - **0.5.0** - Documentation and plugin action<br>
 <br>Added link to Settings Page to Plugin actions

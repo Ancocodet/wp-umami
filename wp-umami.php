@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Integrate Umami
  * Description: Integration for Umami Analytics
- * Version: 0.5.0
+ * Version: 0.6.0
  * Author: Ancocodet
  * Author URI: https://ancozockt.de
  * Plugin URI: https://github.com/Ancocodet/wp-umami
@@ -16,7 +16,7 @@ namespace Ancozockt\Umami;
 
 require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
-define( 'INTEGRATE_UMAMI_VERSION', '0.5.0' );
+define( 'INTEGRATE_UMAMI_VERSION', '0.6.0' );
 define( 'INTEGRATE_UMAMI_BASE_FILE', __FILE__ );
 
 /**
