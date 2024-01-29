@@ -16,6 +16,7 @@ class Manager {
 	 *
 	 * @since 0.1.0
 	 * @change 0.2.0 - Add deactivation hook.
+	 * @change 0.6.0 - Add filter for comment form submit button.
 	 */
 	public function __construct() {
 		$options = Options::get_options();
@@ -23,8 +24,10 @@ class Manager {
 			if ( ! empty( $options['website_id'] ) && ! empty( $options['script_url'] ) ) {
 				add_action( 'wp_footer', array( $this, 'render_script' ) );
 
-				// Add filters to add event data attributes.
-				add_filter( 'comment_form_submit_button', array( $this, 'filter_comment_form_submit_button' ), 10, 2 );
+				if ( isset( $options['track_comments'] ) && $options['track_comments'] === 1 ) {
+					// Add filters to add event data attributes.
+					add_filter( 'comment_form_submit_button', array( $this, 'filter_comment_form_submit_button' ), 10, 2 );
+				}
 			}
 		}
 
