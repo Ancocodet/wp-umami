@@ -2,8 +2,8 @@
 **Contributors:** [ancocodet](https://github.com/Ancocodet) <br>
 **Tags:** analytics,umami <br>
 **Requires at least:** 5.0 <br>
-**Tested up to:** 6.3.1 <br>
-**Stable tag:** 0.5.0 <br>
+**Tested up to:** 6.4.2 <br>
+**Stable tag:** 0.6.0 <br>
 **Requires PHP:** 7.0 <br>
 **License:** GPLv3 or later <br>
 **License URI:** https://github.com/Ancocodet/wp-umami/blob/main/LICENSE.md <br>
@@ -19,8 +19,12 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 * If you don’t know how to install a plugin for WordPress, here’s how.
 
+1. Upload the plugin files to the `/wp-content/plugins/integrate-umami` directory, or install the plugin through the WordPress plugins screen directly.
+2. Activate the plugin through the ‘Plugins’ screen in WordPress
+3. Follow the Setup Tracking instructions
+
 ### Setup Tracking ###
-1. [Add your wordpress to umami](https://umami.is/docs/add-a-website)
+1. [Add your WordPress-Site to umami](https://umami.is/docs/add-a-website)
 2. Go to the Plugin Settings
 3. Fill in the websiteId and ScriptUrl
    * websiteId can be found in the website settings
@@ -36,12 +40,22 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 * Active Development of this plugin is handled [on Github](https://github.com/Ancocodet/wp-umami).
 * Pull requests for documented [issues](https://github.com/Ancocodet/wp-umami/issues) are highly appreciated.
 
+## Roadmap ##
+
+* Add easier setup using the umami API
+* Add dashboard widget for analytics
+* Add filter for adding custom tracking data/events
+
 ## Upgrade Notice ##
 
 - **0.4.1** - Host URL Issue <br> 
 Issues with the settings page were fixed and the overall feeling of the page was improved as well.
 
 ## Changelog ##
+
+- **0.6.0** - Event Tracking<br>
+<br>Added tracking data-attribute for comments
+<br><br>
 
 - **0.5.0** - Documentation and plugin action<br>
 <br>Added link to Settings Page to Plugin actions

@@ -1,9 +1,9 @@
 === Integrate Umami ===
 Contributors: ancocodet
 Tags: analytics,umami
-Stable tag: 0.5.0
+Stable tag: 0.6.0
 Requires at least: 5.0
-Tested up to: 6.3.1
+Tested up to: 6.4.2
 Requires PHP: 7.0
 License: GPLv3 or later
 License URI: https://github.com/Ancocodet/wp-umami/blob/main/LICENSE.md
@@ -19,8 +19,12 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 * If you don’t know how to install a plugin for WordPress, here’s how.
 
+1. Upload the plugin files to the `/wp-content/plugins/integrate-umami` directory, or install the plugin through the WordPress plugins screen directly.
+2. Activate the plugin through the ‘Plugins’ screen in WordPress
+3. Follow the Setup Tracking instructions
+
 === Setup Tracking ===
-1. [Add your wordpress to umami](https://umami.is/docs/add-a-website)
+1. [Add your WordPress-Site to umami](https://umami.is/docs/add-a-website)
 2. Go to the Plugin Settings
 3. Fill in the websiteId and ScriptUrl
    * websiteId can be found in the website settings
@@ -42,6 +46,10 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 Issues with the settings page were fixed and the overall feeling of the page was improved as well.
 
 == Changelog ==
+
+= 0.6.0 =
+* Added tracking data-attribute for comment submits (disabled by default)
+* Tested for newer WordPress versions
 
 = 0.5.0 =
 * Added link to Settings Page to Plugin actions

@@ -12,9 +12,10 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v3
+
+      # Composer Dependencies
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
-
       - name: Cache Composer packages
         id: composer-cache
         uses: actions/cache@v3
@@ -23,10 +24,10 @@ jobs:
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-dev
 
+      # Upload and Package Plugin
       - name: WordPress Plugin Deploy
         uses: 10up/action-wordpress-plugin-deploy@stable
         with:
@@ -35,8 +36,7 @@ jobs:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SLUG: integrate-umami
-
       - name: Package for Git Release
         uses: softprops/action-gh-release@v1
         with:
-          files: ${{ steps.deploy.outputs.zip-path }}/integrate-umami.zip
+          files: ${{ steps.deploy.outputs.zip-path }}/*.zip
