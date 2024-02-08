@@ -90,10 +90,11 @@ class Settings {
 	 * Register settings
 	 *
 	 * @since 0.1.0
+	 * @change 0.6.1 - Changed the option group name.
 	 */
 	public function register_settings() {
 		register_setting(
-			'integration_umami',
+			'integrate_umami',
 			'umami_options',
 			array( $this, 'validate_options' )
 		);
