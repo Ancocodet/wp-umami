@@ -1,9 +1,9 @@
 === Integrate Umami ===
 Contributors: ancocodet
 Tags: analytics,umami
-Stable tag: 0.6.0
+Stable tag: 0.6.1
 Requires at least: 5.0
-Tested up to: 6.4.2
+Tested up to: 6.4.3
 Requires PHP: 7.0
 License: GPLv3 or later
 License URI: https://github.com/Ancocodet/wp-umami/blob/main/LICENSE.md
@@ -42,10 +42,18 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 == Upgrade Notice ==
 
+= 0.6.1 =
+This release fixes an issue with the update from 0.5.0 to 0.6.0. The update process should now work as expected.
+
 = 0.4.1 =
 Issues with the settings page were fixed and the overall feeling of the page was improved as well.
 
 == Changelog ==
+
+= 0.6.1 =
+* Fixed an issue with the update from 0.5.0 to 0.6.0
+* Fixed an issue with the settings page
+* Thanks to [@markim](https://github.com/markim) for reporting the issue
 
 = 0.6.0 =
 * Added tracking data-attribute for comment submits (disabled by default)

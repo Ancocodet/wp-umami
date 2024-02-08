@@ -17,8 +17,6 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 ## Installation ##
 
-* If you don’t know how to install a plugin for WordPress, here’s how.
-
 1. Upload the plugin files to the `/wp-content/plugins/integrate-umami` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the ‘Plugins’ screen in WordPress
 3. Follow the Setup Tracking instructions
@@ -48,10 +46,20 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 ## Upgrade Notice ##
 
+- **0.6.1** - Update Issue<br>
+This release fixes an issue with the update from 0.5.0 to 0.6.0. The update process should now work as expected.
+<br><br>
+
 - **0.4.1** - Host URL Issue <br> 
 Issues with the settings page were fixed and the overall feeling of the page was improved as well.
 
 ## Changelog ##
+
+- **0.6.1** - Update Issue<br>
+<br>Fixed an issue with the update from 0.5.0 to 0.6.0
+<br>Fixed an issue with the settings page
+<br>Thanks to @markim for reporting the issue
+<br><br>
 
 - **0.6.0** - Event Tracking<br>
 <br>Added tracking data-attribute for comments
