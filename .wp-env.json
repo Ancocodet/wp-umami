@@ -1,0 +1,9 @@
+{
+  "core": null,
+  "plugins": [
+    "."
+  ],
+  "config": {
+    "WP_ENVIRONMENT_TYPE": "development"
+  }
+}
