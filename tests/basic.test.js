@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test')
 const TEST_USER = process.env.TEST_USER || 'admin'
 const TEST_PASS = process.env.TEST_PASS || 'password'
 
-test.describe('basic', () => {
+test.describe('basic functionality', () => {
     test.beforeEach(async ({page}) => {
         await page.goto( '/wp-login.php', {waitUntil: 'networkidle'})
         await expect(page).toHaveTitle(/Log In/)
@@ -26,7 +26,7 @@ test.describe('basic', () => {
         await expect(plugin).toHaveClass('active')
     })
 
-    test('menu exist', async ({page}) => {
+    test('menu registered', async ({page}) => {
         await page.goto('/wp-admin/', {waitUntil: 'networkidle'})
         await expect(page).toHaveTitle(/Dashboard/)
 
