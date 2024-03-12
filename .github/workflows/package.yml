@@ -30,13 +30,16 @@ jobs:
       # Upload and Package Plugin
       - name: WordPress Plugin Deploy
         uses: 10up/action-wordpress-plugin-deploy@stable
+        id: deploy
         with:
           generate-zip: true
         env:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SLUG: integrate-umami
+
+      # Add Plugin Archive to GitHub Release
       - name: Package for Git Release
         uses: softprops/action-gh-release@v1
         with:
-          files: ${{ steps.deploy.outputs.zip-path }}/*.zip
+          files: ${{ steps.deploy.outputs.zip-path }}

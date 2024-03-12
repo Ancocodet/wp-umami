@@ -7,3 +7,8 @@ integrate-umami.zip
 
 .distignore
 .gitignore
+
+/node_modules
+playwright.config.js
+package-lock.json
+package.json
