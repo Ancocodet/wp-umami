@@ -9,15 +9,21 @@ jobs:
     strategy:
       matrix:
         wpVersion: [ '6.4' ]
-        phpVersion: [ '8.1']
+        phpVersion: [ '8.2' ]
       fail-fast: false
     steps:
     - uses: actions/checkout@v3
+    - name: Setup PHP with no coverage driver
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.phpVersion }}
+        coverage: none
     - uses: actions/setup-node@v3
       with:
         node-version: '20.x'
     - name: Install dependencies
       run: |
+        composer install --no-progress --no-dev
         npm ci
         WP_ENV_CORE=wordpress/wordpress#${{ matrix.wpVersion }} WP_ENV_PHP_VERSION=${{ matrix.phpVersion }} npm run env start
     - name: Install Playwright Browsers
