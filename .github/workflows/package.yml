@@ -39,4 +39,4 @@ jobs:
       - name: Create GitHub release
         uses: softprops/action-gh-release@v1
         with:
-          files: ${{github.workspace}}/integrate-umami.zip
+          files: ${{ steps.deploy.outputs.zip-path }}
