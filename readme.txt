@@ -3,7 +3,7 @@ Contributors: ancocodet
 Tags: analytics,umami
 Stable tag: 0.6.1
 Requires at least: 5.0
-Tested up to: 6.4.3
+Tested up to: 6.5.2
 Requires PHP: 7.0
 License: GPLv3 or later
 License URI: https://github.com/Ancocodet/wp-umami/blob/main/LICENSE.md
