@@ -29,6 +29,7 @@ jobs:
 
       # Upload and Package Plugin
       - name: WordPress Plugin Deploy
+        id: deploy
         uses: 10up/action-wordpress-plugin-deploy@stable
         with:
           generate-zip: true
