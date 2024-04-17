@@ -37,9 +37,7 @@ jobs:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SLUG: integrate-umami
-
-      # Add Plugin Archive to GitHub Release
-      - name: Package for Git Release
+      - name: Create GitHub release
         uses: softprops/action-gh-release@v1
         with:
           files: ${{ steps.deploy.outputs.zip-path }}
