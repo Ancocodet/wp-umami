@@ -3,7 +3,6 @@ const TEST_USER = process.env.TEST_USER || 'admin'
 const TEST_PASS = process.env.TEST_PASS || 'password'
 
 test.describe('settings page', () => {
-
     test('enable analytics', async ({page}) => {
         await login(page);
         await switchToSettings(page);
@@ -35,7 +34,6 @@ test.describe('settings page', () => {
 
         !page.locator("script[src='https://umami.example.com/umami.js']")
     });
-
 });
 
 async function login(page) {
