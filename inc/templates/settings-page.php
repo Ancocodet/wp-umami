@@ -189,7 +189,7 @@
 							<p class="description">
 								<?php
 								echo wp_kses(
-									__( '<b>Note</b>: This will use session storage, so you may need to inform your users.', 'integrate-umami' ),
+									__( '<b>Note</b>: This will use session storage, so you may need to inform your users. (Not Supported by Umami v2)', 'integrate-umami' ),
 									[
 										'b' => [],
 									]
