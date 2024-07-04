@@ -3,7 +3,7 @@ Contributors: ancocodet
 Tags: analytics,umami
 Stable tag: 0.6.1
 Requires at least: 5.0
-Tested up to: 6.5.2
+Tested up to: 6.5.5
 Requires PHP: 7.4
 License: GPLv3 or later
 License URI: https://github.com/Ancocodet/wp-umami/blob/main/LICENSE.md
@@ -44,6 +44,7 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 = 0.7.0 =
 * Increased the minimum required PHP version to 7.4
+* Add deprecation information for do_not_track option
 
 = 0.6.1 =
 This release fixes an issue with the update from 0.5.0 to 0.6.0. The update process should now work as expected.

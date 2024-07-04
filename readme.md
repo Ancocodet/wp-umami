@@ -2,9 +2,9 @@
 **Contributors:** [ancocodet](https://github.com/Ancocodet) <br>
 **Tags:** analytics,umami <br>
 **Requires at least:** 5.0 <br>
-**Tested up to:** 6.5.2 <br>
+**Tested up to:** 6.5.5 <br>
 **Stable tag:** 0.6.1 <br>
-**Requires PHP:** 7.0 <br>
+**Requires PHP:** 7.4 <br>
 **License:** GPLv3 or later <br>
 **License URI:** https://github.com/Ancocodet/wp-umami/blob/main/LICENSE.md <br>
 
@@ -30,7 +30,7 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 4. Enable umami analytics and save your settings
 
 ### Requirements ###
-* PHP 7.0 or greater
+* PHP 7.4 or greater
 * WordPress 5.0 or greater
 
 ## Contribute ##
@@ -46,6 +46,10 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 ## Upgrade Notice ##
 
+- **0.7.0** - Preparation for 1.0<br>
+This release increases the minimum required PHP version to 7.4.
+<br><br>
+
 - **0.6.1** - Update Issue<br>
 This release fixes an issue with the update from 0.5.0 to 0.6.0. The update process should now work as expected.
 <br><br>
@@ -54,6 +58,11 @@ This release fixes an issue with the update from 0.5.0 to 0.6.0. The update proc
 Issues with the settings page were fixed and the overall feeling of the page was improved as well.
 
 ## Changelog ##
+
+- **0.7.0** - Preperation for 1.0<br>
+<br>Increased the minimum required PHP version to 7.4
+<br>Add deprecation information for do_not_track option
+<br><br>
 
 - **0.6.1** - Update Issue<br>
 <br>Fixed an issue with the update from 0.5.0 to 0.6.0
