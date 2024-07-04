@@ -167,7 +167,7 @@
 								value="1" <?php checked( $options['do_not_track'] ); ?> />
 							<?php
 							echo wp_kses(
-								__( 'Respect visitor`s <b>Do Not Track</b> setting', 'integrate-umami' ),
+								__( 'Respect visitor`s <b>Do Not Track</b> setting (Not Supported by Umami v2)', 'integrate-umami' ),
 								[
 									'b' => [],
 								]
