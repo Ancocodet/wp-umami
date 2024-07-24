@@ -43,7 +43,7 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 == Upgrade Notice ==
 
 = 0.7.0 =
-This release increases the minimum php version to 7.4.
+This release increases the minimum php version to 7.4 as a preperation for the 1.0.
 
 = 0.6.1 =
 This release fixes an issue with the update from 0.5.0 to 0.6.0. The update process should now work as expected.
