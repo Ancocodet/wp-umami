@@ -43,8 +43,7 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 == Upgrade Notice ==
 
 = 0.7.0 =
-* Increased the minimum required PHP version to 7.4
-* Add deprecation information for do_not_track option
+This release increases the minimum php version to 7.4.
 
 = 0.6.1 =
 This release fixes an issue with the update from 0.5.0 to 0.6.0. The update process should now work as expected.
@@ -53,6 +52,10 @@ This release fixes an issue with the update from 0.5.0 to 0.6.0. The update proc
 Issues with the settings page were fixed and the overall feeling of the page was improved as well.
 
 == Changelog ==
+
+= 0.7.0 =
+* Increased the minimum required PHP version to 7.4
+* Add deprecation information for do_not_track option
 
 = 0.6.1 =
 * Fixed an issue with the update from 0.5.0 to 0.6.0
