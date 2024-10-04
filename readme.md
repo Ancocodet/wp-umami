@@ -1,8 +1,8 @@
 # Integrate Umami #
 **Contributors:** [ancocodet](https://github.com/Ancocodet) <br>
 **Tags:** analytics,umami <br>
-**Requires at least:** 5.0 <br>
-**Tested up to:** 6.6 <br>
+**Requires at least:** 6.0 <br>
+**Tested up to:** 6.7 <br>
 **Stable tag:** 0.7.0 <br>
 **Requires PHP:** 7.4 <br>
 **License:** GPLv3 or later <br>

@@ -66,9 +66,9 @@
 						<?php
 						echo wp_kses(
 							__( 'The URL of the Umami instance <b>if it is different from the URL to the script.</b>', 'integrate-umami' ),
-							[
-								'b' => [],
-							]
+							array(
+								'b' => array(),
+							)
 						);
 						?>
 						</p>
@@ -86,11 +86,11 @@
 							<?php
 							echo wp_kses(
 								__( 'Use Host Url as data target. <a href="https://umami.is/docs/tracker-configuration">More information</a>', 'integrate-umami' ),
-								[
-									'a' => [
-										'href' => [],
-									],
-								]
+								array(
+									'a' => array(
+										'href' => array(),
+									),
+								)
 							);
 							?>
 						</label>
@@ -123,12 +123,12 @@
 								<?php
 								echo wp_kses(
 									__( '<b>Note</b>: You need to add your own <a href="https://umami.is/docs/tracker-functions">Tracker functions</a> when disabled.', 'integrate-umami' ),
-									[
-										'b' => [],
-										'a' => [
-											'href' => [],
-										],
-									]
+									array(
+										'b' => array(),
+										'a' => array(
+											'href' => array(),
+										),
+									)
 								);
 								?>
 							</p>
@@ -146,11 +146,11 @@
 							<?php
 							echo wp_kses(
 								__( 'Track Comment submits using <a href="https://umami.is/docs/track-events">events</a>', 'integrate-umami' ),
-								[
-									'a' => [
-										'href' => [],
-									],
-								]
+								array(
+									'a' => array(
+										'href' => array(),
+									),
+								)
 							);
 							?>
 						</label>
@@ -168,9 +168,9 @@
 							<?php
 							echo wp_kses(
 								__( 'Respect visitor`s <b>Do Not Track</b> setting (Not Supported by Umami v2)', 'integrate-umami' ),
-								[
-									'b' => [],
-								]
+								array(
+									'b' => array(),
+								)
 							);
 							?>
 						</label>
@@ -190,9 +190,9 @@
 								<?php
 								echo wp_kses(
 									__( '<b>Note</b>: This will use session storage, so you may need to inform your users. (Not Supported by Umami v2)', 'integrate-umami' ),
-									[
-										'b' => [],
-									]
+									array(
+										'b' => array(),
+									)
 								);
 								?>
 							</p>

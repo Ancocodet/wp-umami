@@ -1,4 +1,5 @@
-const { test, expect } = require('@playwright/test')
+const {test, expect} = require('@playwright/test')
+const {updateOption, getOption, runCommand} = require("./helper/wpcli-command");
 const TEST_USER = process.env.TEST_USER || 'admin'
 const TEST_PASS = process.env.TEST_PASS || 'password'
 
@@ -10,7 +11,7 @@ test.describe('settings page', () => {
         await page.locator('#integrate_umami_enabled').check();
         await page.locator('#integrate_umami_script_url').fill('https://umami.example.com/umami.js')
         await page.locator('#integrate_umami_website_id').fill('12345678')
-        await page.getByRole('button', { name: 'Save Changes' }).click();
+        await page.getByRole('button', {name: 'Save Changes'}).click();
 
         await logout(page);
         await page.goto('/', {waitUntil: 'networkidle'});
@@ -27,17 +28,34 @@ test.describe('settings page', () => {
         await switchToSettings(page);
 
         await page.locator('#integrate_umami_enabled').check();
-        await page.getByRole('button', { name: 'Save Changes' }).click();
+        await page.getByRole('button', {name: 'Save Changes'}).click();
 
         await logout(page);
         await page.goto('/', {waitUntil: 'networkidle'});
 
         !page.locator("script[src='https://umami.example.com/umami.js']")
     });
+
+    test('migrate from old settings', async ({page}) => {
+        const oldOptions = {
+            enabled: true,
+            script_url: 'https://umami.example.com/umami.js',
+            website_id: '12345678',
+        }
+        const jsonOptions = JSON.stringify(oldOptions);
+
+        runCommand(`option update umami_options '${jsonOptions}' --format=json`);
+
+        await login(page);
+        await switchToSettings(page);
+
+        const newOptions = runCommand('option get integrate_umami_options --format=json');
+        expect(newOptions).toEqual(jsonOptions);
+    });
 });
 
 async function login(page) {
-    await page.goto( '/wp-login.php', {waitUntil: 'networkidle'})
+    await page.goto('/wp-login.php', {waitUntil: 'networkidle'})
     await expect(page).toHaveTitle(/Log In/)
 
     /** initiate login process */
