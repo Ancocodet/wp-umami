@@ -9,6 +9,7 @@ integrate-umami.zip
 .gitignore
 
 /node_modules
+/playwright-report
 playwright.config.js
 package-lock.json
 package.json
