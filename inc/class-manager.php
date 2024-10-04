@@ -11,6 +11,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 0.1.0
  */
 class Manager {
+
+	/**
+	 * The Plugin options.
+	 *
+	 * @var array $options
+	 */
+	private array $options;
+
 	/**
 	 * Manager constructor.
 	 *
@@ -30,6 +38,8 @@ class Manager {
 				}
 			}
 		}
+
+		new DashboardWidget();
 
 		register_deactivation_hook( INTEGRATE_UMAMI_BASE_FILE, array( $this, 'deactivate' ) );
 	}
