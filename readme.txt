@@ -56,6 +56,9 @@ Issues with the settings page were fixed and the overall feeling of the page was
 
 == Changelog ==
 
+= 0.8.1 =
+* Fixed issue with the Widget redirecting to the wrong page
+
 = 0.8.0 =
 * Increased the minimum WordPress version to 6.0
 * Added a simple dashboard widget for redirecting to the umami dashboard

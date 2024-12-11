@@ -44,6 +44,7 @@ class DashboardWidget {
 	 * Render the widget.
 	 *
 	 * @since 0.8.0
+	 * @change 0.8.1 - Path changed in umami.
 	 */
 	public function render_widget() {
 		$options    = Options::get_options();
@@ -56,7 +57,7 @@ class DashboardWidget {
 			if ( empty( $host_url ) ) {
 				$host_url = wp_parse_url( $script_url, PHP_URL_SCHEME ) . '://' . wp_parse_url( $script_url, PHP_URL_HOST );
 			}
-			$url = $host_url . '/admin/websites/' . $website_id;
+			$url = $host_url . '/websites/' . $website_id;
 			echo wp_kses(
 				// translators: %s => Umami Admin page URL.
 				sprintf( __( 'View you analytics on <a href="%s" target="_blank">Umami Analytics</a>', 'integrate-umami' ), esc_url( $url ) ),
