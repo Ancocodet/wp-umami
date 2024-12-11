@@ -38,19 +38,39 @@ test.describe('settings page', () => {
 
     test('migrate from old settings', async ({page}) => {
         const oldOptions = {
-            enabled: true,
+            enabled: 1,
             script_url: 'https://umami.example.com/umami.js',
             website_id: '12345678',
+            do_not_track: 1,
+            auto_track: 1,
+            cache: 0,
+            track_comments: 0,
+            ignore_admins: 1,
+            use_host_url: 0,
+            host_url: '',
+
         }
         const jsonOptions = JSON.stringify(oldOptions);
 
-        runCommand(`option update umami_options '${jsonOptions}' --format=json`);
+        runCommand(`option update umami_options ${jsonOptions} --format=json --quiet`);
+        runCommand(`option delete integrate_umami_options --quiet`);
 
         await login(page);
         await switchToSettings(page);
 
-        const newOptions = runCommand('option get integrate_umami_options --format=json');
-        expect(newOptions).toEqual(jsonOptions);
+        let value;
+        try{
+            value = runCommand('option get integrate_umami_options --format=json --quiet').toString();
+        } catch (e) { }
+
+        let jsonValue = JSON.parse(value);
+        expect(jsonValue).toEqual(oldOptions);
+
+        let testValue;
+        try {
+            testValue = runCommand('option get umami_options --format=json --quiet').toString();
+        } catch (e) { }
+        expect(testValue).toEqual(undefined)
     });
 });
 

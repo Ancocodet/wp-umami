@@ -17,7 +17,14 @@ function runCommand(command, whiteSpaceArg = false) {
         throw `WP-CLI command "${command}" failed: ${result.stderr.toString()}`;
     }
 
-    return result.stdout.toString();
+    let output = result.stdout.toString().trim();
+    if (output === '') {
+        output = result.stderr.toString();
+    } else {
+        output = output.split('\n').slice(2).join('\n').trim();
+    }
+
+    return output;
 }
 
 module.exports = {
