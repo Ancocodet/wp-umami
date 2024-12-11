@@ -61,7 +61,6 @@ class Manager {
 	 * @since 0.6.0
 	 */
 	public function filter_comment_form_submit_button( string $submit_button ) {
-        // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed -- Ignoring unused $args parameter
 		return str_replace( '<button', '<button data-umami-event="comment"', $submit_button );
 	}
 
