@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.4"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "*",
@@ -35,6 +35,7 @@
         "post-install-cmd": [
             "@install-codestandards"
         ],
-        "php:lint": "./vendor/bin/phpcs ."
+        "php:lint": "./vendor/bin/phpcs . -s",
+        "php:lint-fix": "./vendor/bin/phpcbf ."
     }
 }

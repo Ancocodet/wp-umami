@@ -95,7 +95,7 @@ class Settings {
 	public function register_settings() {
 		register_setting(
 			'integrate_umami',
-			'umami_options',
+			'integrate_umami_options',
 			array( $this, 'validate_options' )
 		);
 	}
@@ -165,5 +165,4 @@ class Settings {
 			</div>
 		<?php
 	}
-
 }

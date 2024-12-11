@@ -11,6 +11,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 0.1.0
  */
 class Manager {
+
+	/**
+	 * The Plugin options.
+	 *
+	 * @var array $options
+	 */
+	private array $options;
+
 	/**
 	 * Manager constructor.
 	 *
@@ -26,10 +34,12 @@ class Manager {
 
 				if ( isset( $options['track_comments'] ) && $options['track_comments'] === 1 ) {
 					// Add filters to add event data attributes.
-					add_filter( 'comment_form_submit_button', array( $this, 'filter_comment_form_submit_button' ), 10, 2 );
+					add_filter( 'comment_form_submit_button', array( $this, 'filter_comment_form_submit_button' ), 10, 1 );
 				}
 			}
 		}
+
+		new DashboardWidget();
 
 		register_deactivation_hook( INTEGRATE_UMAMI_BASE_FILE, array( $this, 'deactivate' ) );
 	}
@@ -47,11 +57,10 @@ class Manager {
 	 * Filter comment submit button to add data attribute.
 	 *
 	 * @param string $submit_button The submit button.
-	 * @param array  $args          The arguments.
 	 *
 	 * @since 0.6.0
 	 */
-	public function filter_comment_form_submit_button( string $submit_button, array $args ) {
+	public function filter_comment_form_submit_button( string $submit_button ) {
 		return str_replace( '<button', '<button data-umami-event="comment"', $submit_button );
 	}
 
@@ -95,5 +104,4 @@ class Manager {
 		<!-- /Integrate Umami -->
 		<?php
 	}
-
 }
