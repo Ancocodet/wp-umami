@@ -1,0 +1,14 @@
+{
+  "commitizen": {
+    "name": "cz_conventional_commits",
+    "tag_format": "$version",
+    "version_scheme": "semver",
+    "version": "0.8.0",
+    "update_changelog_on_bump": true,
+    "version_files": [
+      "wp-umami.php",
+      "readme.txt:Stable tag: $version",
+      "readme.md:**Stable tag:** $version"
+    ]
+  }
+}

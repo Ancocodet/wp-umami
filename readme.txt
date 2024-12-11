@@ -45,7 +45,7 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 = 0.8.0 =
 This release migrates the settings to a new option name to standardize variable names. Please check your settings after updating.
 
-= 0.7.0 =
+= 0.8.0 =
 This release increases the minimum php version to 7.4 as a preperation for the 1.0.
 
 = 0.6.1 =
@@ -60,7 +60,7 @@ Issues with the settings page were fixed and the overall feeling of the page was
 * Added a simple dashboard widget for redirecting to the umami dashboard
 * Migrating the settings to a new option name to standardize variable names
 
-= 0.7.0 =
+= 0.8.0 =
 * Increased the minimum required PHP version to 7.4
 * Add deprecation information for do_not_track option
 
