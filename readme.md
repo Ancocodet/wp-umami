@@ -63,6 +63,7 @@ Issues with the settings page were fixed and the overall feeling of the page was
 ## Changelog ##
 
 - **0.8.0** - Migrate options<br>
+<br>Increased the minimum WordPress version to 6.0
 <br>Migrate option to new naming structure
 <br>Add simple dashboard widget
 <br><br>

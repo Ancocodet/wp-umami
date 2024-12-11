@@ -57,6 +57,7 @@ Issues with the settings page were fixed and the overall feeling of the page was
 == Changelog ==
 
 = 0.8.0 =
+* Increased the minimum WordPress version to 6.0
 * Added a simple dashboard widget for redirecting to the umami dashboard
 * Migrating the settings to a new option name to standardize variable names
 
