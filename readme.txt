@@ -1,7 +1,7 @@
 === Integrate Umami ===
 Contributors: ancocodet
 Tags: analytics,umami
-Stable tag: 0.7.0
+Stable tag: 0.8.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -42,6 +42,9 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 == Upgrade Notice ==
 
+= 0.8.0 =
+This release migrates the settings to a new option name to standardize variable names. Please check your settings after updating.
+
 = 0.7.0 =
 This release increases the minimum php version to 7.4 as a preperation for the 1.0.
 
@@ -52,6 +55,10 @@ This release fixes an issue with the update from 0.5.0 to 0.6.0. The update proc
 Issues with the settings page were fixed and the overall feeling of the page was improved as well.
 
 == Changelog ==
+
+= 0.8.0 =
+* Added a simple dashboard widget for redirecting to the umami dashboard
+* Migrating the settings to a new option name to standardize variable names
 
 = 0.7.0 =
 * Increased the minimum required PHP version to 7.4

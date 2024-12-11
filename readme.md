@@ -3,7 +3,7 @@
 **Tags:** analytics,umami <br>
 **Requires at least:** 6.0 <br>
 **Tested up to:** 6.7 <br>
-**Stable tag:** 0.7.0 <br>
+**Stable tag:** 0.8.0 <br>
 **Requires PHP:** 7.4 <br>
 **License:** GPLv3 or later <br>
 **License URI:** https://github.com/Ancocodet/wp-umami/blob/main/LICENSE.md <br>
@@ -46,6 +46,9 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 ## Upgrade Notice ##
 
+- **0.7.0** - Migrate options<br>
+This release migrates the options to new naming structure. Please check your settings after updating.
+
 - **0.7.0** - Preparation for 1.0<br>
 This release increases the minimum required PHP version to 7.4.
 <br><br>
@@ -59,7 +62,12 @@ Issues with the settings page were fixed and the overall feeling of the page was
 
 ## Changelog ##
 
-- **0.7.0** - Preperation for 1.0<br>
+- **0.8.0** - Migrate options<br>
+<br>Migrate option to new naming structure
+<br>Add simple dashboard widget
+<br><br>
+
+- **0.7.0** - Preparation for 1.0<br>
 <br>Increased the minimum required PHP version to 7.4
 <br>Add deprecation information for do_not_track option
 <br><br>
