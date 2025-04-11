@@ -23,7 +23,6 @@ class Settings {
 		if ( is_admin() ) {
 			add_action( 'admin_init', array( $this, 'register_styles' ) );
 			add_action( 'admin_init', array( $this, 'register_settings' ) );
-			add_action( 'admin_init', array( $this, 'load_textdomain' ) );
 			add_action( 'admin_menu', array( $this, 'add_page' ) );
 		}
 		add_action( 'plugin_action_links_integrate-umami/wp-umami.php', array( $this, 'plugin_actions' ) );
@@ -52,15 +51,6 @@ class Settings {
 		$links[] = $settings_link;
 
 		return $links;
-	}
-
-	/**
-	 * Load the plugin textdomain.
-	 *
-	 * @since 0.1.0
-	 */
-	public function load_textdomain() {
-		load_plugin_textdomain( 'integrate-umami' );
 	}
 
 	/**
