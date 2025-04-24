@@ -1,8 +1,24 @@
-name: Playwright Tests
+name: Pull Request Checks
 on:
   pull_request:
     branches: [ main ]
 jobs:
+  linting:
+    name: PHP CS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+      - name: Check installed cs rules
+        run: vendor/bin/phpcs -i
+      - name: CS Check
+        run: ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit true --standard=phpcs.xml ./
+
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
@@ -36,3 +52,21 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+  automerge:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.actor == 'dependabot[bot]'
+    needs:
+      - linting
+      - test
+    steps:
+      - name: Merge
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.pulls.merge({
+              owner: context.payload.repository.owner.login,
+              repo: context.payload.repository.name,
+              pull_number: context.payload.pull_request.number
+            })
+          github-token: ${{ github.token }}
+
