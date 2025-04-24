@@ -59,9 +59,27 @@ class Manager {
 	 * @param string $submit_button The submit button.
 	 *
 	 * @since 0.6.0
+	 * @change 0.8.3 - Fix bug with comment form submit button.
+	 * @change 0.8.3 - Add more meta data attributes.
 	 */
 	public function filter_comment_form_submit_button( string $submit_button ) {
-		return str_replace( '<button', '<button data-umami-event="comment"', $submit_button );
+		$post_id = get_the_ID();
+
+		$data_attributes = 'data-umami-event="comment" ';
+		if ( $post_id !== false && is_numeric( $post_id ) ) {
+			$post_title = get_the_title( $post_id );
+			if ( strlen( $post_title ) > 50 ) {
+				$post_title = substr( $post_title, 0, 50 ) . '...';
+			}
+			$data_attributes .= 'data-umami-event-post-id="' . esc_attr( $post_id ) . '" ';
+			$data_attributes .= 'data-umami-event-post-title="' . esc_attr( $post_title ) . '" ';
+		}
+
+		// Check if $submit button is a "button" element.
+		if ( strpos( $submit_button, '<button' ) !== false ) {
+			return str_replace( '<button', '<input ' . $data_attributes, $submit_button );
+		}
+		return str_replace( '<input', '<input ' . $data_attributes, $submit_button );
 	}
 
 	/**
