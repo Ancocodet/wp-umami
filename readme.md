@@ -62,6 +62,11 @@ Issues with the settings page were fixed and the overall feeling of the page was
 
 ## Changelog ##
 
+- **0.8.3** - Comment Tracking Fix<br>
+<br>Fixed an issue with the comment tracking
+<br>Added more metadata to the comment tracking
+<br><br>
+
 - **0.8.1** - Widget Fix<br>
 <br>Fixed an issue with the widget redirecting to the wrong url
 <br><br>
