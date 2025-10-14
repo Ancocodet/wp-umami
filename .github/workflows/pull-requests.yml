@@ -59,14 +59,8 @@ jobs:
       - linting
       - test
     steps:
-      - name: Merge
-        uses: actions/github-script@v7
+      - uses: ahmadnassri/action-dependabot-auto-merge@v2
         with:
-          script: |
-            github.rest.pulls.merge({
-              owner: context.payload.repository.owner.login,
-              repo: context.payload.repository.name,
-              pull_number: context.payload.pull_request.number
-            })
-          github-token: ${{ github.token }}
+          target: patch
+          github-token: ${{ secrets.PAT_TOKEN }}
 
