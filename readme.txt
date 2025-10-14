@@ -3,7 +3,7 @@ Contributors: ancocodet
 Tags: analytics,umami
 Stable tag: 0.8.3
 Requires at least: 6.0
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 7.4
 License: GPLv3 or later
 License URI: https://github.com/Ancocodet/wp-umami/blob/main/LICENSE.md
@@ -33,7 +33,7 @@ Umami is a simple, fast, website analytics tool for those who care about privacy
 
 === Requirements ===
 * PHP 7.4 or greater
-* WordPress 5.0 or greater
+* WordPress 6.0 or greater
 
 == Contribute ==
 
