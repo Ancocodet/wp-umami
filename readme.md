@@ -2,7 +2,7 @@
 **Contributors:** [ancocodet](https://github.com/Ancocodet) <br>
 **Tags:** analytics,umami <br>
 **Requires at least:** 6.0 <br>
-**Tested up to:** 6.8 <br>
+**Tested up to:** 6.9 <br>
 **Stable tag:** 0.8.3 <br>
 **Requires PHP:** 7.4 <br>
 **License:** GPLv3 or later <br>
