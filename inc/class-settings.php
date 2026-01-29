@@ -125,17 +125,31 @@ class Settings {
 			return array();
 		}
 
+		// Sanitize before_send: only allow valid JS identifier patterns.
+		$before_send = sanitize_text_field( $data['before_send'] ?? '' );
+		if ( '' !== $before_send && ! preg_match( '/^[a-zA-Z_$][a-zA-Z0-9_$.]*$/', $before_send ) ) {
+			$before_send = '';
+		}
+
 		return array(
 			'enabled'        => (int) ( $data['enabled'] ?? false ),
-			'script_url'     => esc_url_raw( $data['script_url'] ),
-			'website_id'     => sanitize_text_field( $data['website_id'] ),
-			'host_url'       => esc_url_raw( $data['host_url'] ),
+			'script_url'     => esc_url_raw( trim( $data['script_url'] ?? '' ) ),
+			'website_id'     => sanitize_text_field( trim( $data['website_id'] ?? '' ) ),
+			'host_url'       => esc_url_raw( trim( $data['host_url'] ?? '' ) ),
 			'use_host_url'   => (int) ( $data['use_host_url'] ?? false ),
 			'ignore_admins'  => (int) ( $data['ignore_admins'] ?? false ),
 			'auto_track'     => (int) ( $data['auto_track'] ?? false ),
 			'do_not_track'   => (int) ( $data['do_not_track'] ?? false ),
 			'cache'          => (int) ( $data['cache'] ?? false ),
 			'track_comments' => (int) ( $data['track_comments'] ?? false ),
+			'tag'            => sanitize_text_field( $data['tag'] ?? '' ),
+			'domains'        => sanitize_text_field( $data['domains'] ?? '' ),
+			'exclude_search' => (int) ( $data['exclude_search'] ?? false ),
+			'exclude_hash'   => (int) ( $data['exclude_hash'] ?? false ),
+			'before_send'    => $before_send,
+			'api_key'        => sanitize_text_field( $data['api_key'] ?? '' ),
+			'api_username'   => sanitize_text_field( $data['api_username'] ?? '' ),
+			'api_password'   => sanitize_text_field( $data['api_password'] ?? '' ),
 		);
 	}
 

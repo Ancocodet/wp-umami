@@ -36,6 +36,14 @@ class Options {
 				'do_not_track'   => 1,
 				'cache'          => 0,
 				'track_comments' => 0,
+				'tag'            => '',
+				'domains'        => '',
+				'exclude_search' => 0,
+				'exclude_hash'   => 0,
+				'before_send'    => '',
+				'api_key'        => '',
+				'api_username'   => '',
+				'api_password'   => '',
 			)
 		);
 	}

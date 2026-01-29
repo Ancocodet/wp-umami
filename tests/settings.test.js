@@ -11,6 +11,11 @@ test.describe('settings page', () => {
         await page.locator('#integrate_umami_enabled').check();
         await page.locator('#integrate_umami_script_url').fill('https://umami.example.com/umami.js')
         await page.locator('#integrate_umami_website_id').fill('12345678')
+
+        // Expand advanced options and enable do-not-track.
+        await page.locator('label[for="advanced-options"]').click();
+        await page.locator('#integrate_umami_do_not_track').check();
+
         await page.getByRole('button', {name: 'Save Changes'}).click();
 
         await logout(page);
