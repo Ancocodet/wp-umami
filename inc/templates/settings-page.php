@@ -34,7 +34,17 @@
 			<td>
 				<input class="integrate-umami-url" type="url" name="integrate_umami_options[script_url]" id="integrate_umami_script_url"
 					value="<?php echo esc_attr( $options['script_url'] ); ?>"/>
-				<p class="description"><?php esc_html_e( 'The url to your umami tracking script', 'integrate-umami' ); ?></p>
+				<p class="description">
+					<?php
+					echo wp_kses(
+						__( 'The URL to your Umami tracking script.<br>Self-hosted: typically <code>https://your-domain.com/script.js</code><br>Umami Cloud: use <code>https://cloud.umami.is/script.js</code>', 'integrate-umami' ),
+						array(
+							'br'   => array(),
+							'code' => array(),
+						)
+					);
+					?>
+				</p>
 			</td>
 		</tr>
 
@@ -118,14 +128,14 @@
 						<label for="integrate_umami_auto_track">
 							<input type="checkbox" name="integrate_umami_options[auto_track]" id="integrate_umami_auto_track"
 								value="1" <?php checked( $options['auto_track'] ); ?> />
-							<?php esc_html_e( 'Enable the automatic events and pageviews tracking', 'integrate-umami' ); ?>
+							<?php esc_html_e( 'Automatically track page views and outbound link clicks', 'integrate-umami' ); ?>
 							<p class="description">
 								<?php
 								echo wp_kses(
-									__( '<b>Note</b>: You need to add your own <a href="https://umami.is/docs/tracker-functions">Tracker functions</a> when disabled.', 'integrate-umami' ),
+									__( 'When disabled, you must call <code>umami.track()</code> manually in your theme or plugin code. See <a href="https://umami.is/docs/tracker-functions">Tracker functions</a>.', 'integrate-umami' ),
 									array(
-										'b' => array(),
-										'a' => array(
+										'code' => array(),
+										'a'    => array(
 											'href' => array(),
 										),
 									)
@@ -180,16 +190,17 @@
 				<tr>
 					<th class="row">
 						<?php esc_html_e( 'Cache', 'integrate-umami' ); ?>
+						<span style="color: #d63638; font-size: 11px; font-weight: normal;"><?php esc_html_e( '(Deprecated)', 'integrate-umami' ); ?></span>
 					</th>
 					<td>
 						<label for="integrate_umami_cache">
 							<input type="checkbox" name="integrate_umami_options[cache]" id="integrate_umami_cache"
 								value="1" <?php checked( $options['cache'] ); ?> />
-							<?php esc_html_e( 'Enable caching of tracking data for better performance', 'integrate-umami' ); ?>
-							<p class="description">
+							<?php esc_html_e( 'Enable caching of tracking data using session storage', 'integrate-umami' ); ?>
+							<p class="description" style="color: #d63638;">
 								<?php
 								echo wp_kses(
-									__( '<b>Note</b>: This will use session storage, so you may need to inform your users. (Not Supported by Umami v2)', 'integrate-umami' ),
+									__( '<b>Deprecated:</b> This option has been removed in Umami v3 and will be removed from this plugin in a future release.', 'integrate-umami' ),
 									array(
 										'b' => array(),
 									)
@@ -197,6 +208,160 @@
 								?>
 							</p>
 						</label>
+					</td>
+				</tr>
+				<tr>
+					<th class="row">
+						<?php esc_html_e( 'Tag', 'integrate-umami' ); ?>
+					</th>
+					<td>
+						<input class="integrate-umami-text" type="text" name="integrate_umami_options[tag]" id="integrate_umami_tag"
+							value="<?php echo esc_attr( $options['tag'] ); ?>"/>
+						<p class="description">
+							<?php
+							echo wp_kses(
+								__( 'Assign a tag to group tracked events. Useful for A/B testing. See <a href="https://umami.is/docs/tracker-configuration">Tracker configuration</a>.', 'integrate-umami' ),
+								array(
+									'a' => array(
+										'href' => array(),
+									),
+								)
+							);
+							?>
+						</p>
+					</td>
+				</tr>
+
+				<tr>
+					<th class="row">
+						<?php esc_html_e( 'Domains', 'integrate-umami' ); ?>
+					</th>
+					<td>
+						<input class="integrate-umami-text" type="text" name="integrate_umami_options[domains]" id="integrate_umami_domains"
+							value="<?php echo esc_attr( $options['domains'] ); ?>"/>
+						<p class="description">
+							<?php esc_html_e( 'Comma-separated list of domains where tracking is active. Leave empty to track on all domains.', 'integrate-umami' ); ?>
+						</p>
+					</td>
+				</tr>
+
+				<tr>
+					<th class="row">
+						<?php esc_html_e( 'Exclude Search Params', 'integrate-umami' ); ?>
+					</th>
+					<td>
+						<label for="integrate_umami_exclude_search">
+							<input type="checkbox" name="integrate_umami_options[exclude_search]" id="integrate_umami_exclude_search"
+								value="1" <?php checked( $options['exclude_search'] ); ?> />
+							<?php esc_html_e( 'Exclude URL query parameters from tracked page URLs', 'integrate-umami' ); ?>
+							<p class="description">
+								<?php esc_html_e( 'Removes ?query=string from tracked URLs. Requires Umami v3.', 'integrate-umami' ); ?>
+							</p>
+						</label>
+					</td>
+				</tr>
+
+				<tr>
+					<th class="row">
+						<?php esc_html_e( 'Exclude Hash', 'integrate-umami' ); ?>
+					</th>
+					<td>
+						<label for="integrate_umami_exclude_hash">
+							<input type="checkbox" name="integrate_umami_options[exclude_hash]" id="integrate_umami_exclude_hash"
+								value="1" <?php checked( $options['exclude_hash'] ); ?> />
+							<?php esc_html_e( 'Exclude URL hash fragments from tracked page URLs', 'integrate-umami' ); ?>
+							<p class="description">
+								<?php esc_html_e( 'Removes #fragment from tracked URLs. Requires Umami v3.', 'integrate-umami' ); ?>
+							</p>
+						</label>
+					</td>
+				</tr>
+
+				<tr>
+					<th class="row">
+						<?php esc_html_e( 'Before Send Function', 'integrate-umami' ); ?>
+					</th>
+					<td>
+						<input class="integrate-umami-text" type="text" name="integrate_umami_options[before_send]" id="integrate_umami_before_send"
+							value="<?php echo esc_attr( $options['before_send'] ); ?>"/>
+						<p class="description">
+							<?php
+							echo wp_kses(
+								__( 'Name of a JavaScript function to intercept tracking data before it is sent. The function receives <code>(type, payload)</code> and should return the modified payload, or a falsy value to cancel the request. Requires Umami v3.', 'integrate-umami' ),
+								array(
+									'code' => array(),
+								)
+							);
+							?>
+						</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="integrate-umami-collapsed">
+		<input class="toggle" id="api-options" type="checkbox">
+		<label class="toggle-label" for="api-options"><?php esc_html_e( 'API Connection (Optional)', 'integrate-umami' ); ?></label>
+		<div class="content">
+			<p class="description">
+				<?php
+				echo wp_kses(
+					__( 'Connect to the Umami API to display analytics in your WordPress dashboard. For Umami Cloud, use an API key. For self-hosted instances, use your Umami username and password. See <a href="https://umami.is/docs/api">API documentation</a>.', 'integrate-umami' ),
+					array(
+						'a' => array(
+							'href' => array(),
+						),
+					)
+				);
+				?>
+			</p>
+			<table class="form-table">
+				<tr>
+					<th class="row">
+						<?php esc_html_e( 'API Key', 'integrate-umami' ); ?>
+					</th>
+					<td>
+						<input class="integrate-umami-text" type="password" name="integrate_umami_options[api_key]" id="integrate_umami_api_key"
+							value="<?php echo esc_attr( $options['api_key'] ); ?>" autocomplete="off"/>
+						<p class="description">
+							<?php
+							echo wp_kses(
+								__( 'For Umami Cloud: create an API key at Settings &gt; API Keys in your <a href="https://cloud.umami.is">Umami Cloud</a> dashboard.', 'integrate-umami' ),
+								array(
+									'a' => array(
+										'href' => array(),
+									),
+								)
+							);
+							?>
+						</p>
+					</td>
+				</tr>
+
+				<tr>
+					<th class="row">
+						<?php esc_html_e( 'API Username', 'integrate-umami' ); ?>
+					</th>
+					<td>
+						<input class="integrate-umami-text" type="text" name="integrate_umami_options[api_username]" id="integrate_umami_api_username"
+							value="<?php echo esc_attr( $options['api_username'] ); ?>" autocomplete="off"/>
+						<p class="description">
+							<?php esc_html_e( 'For self-hosted Umami: your Umami admin username.', 'integrate-umami' ); ?>
+						</p>
+					</td>
+				</tr>
+
+				<tr>
+					<th class="row">
+						<?php esc_html_e( 'API Password', 'integrate-umami' ); ?>
+					</th>
+					<td>
+						<input class="integrate-umami-text" type="password" name="integrate_umami_options[api_password]" id="integrate_umami_api_password"
+							value="<?php echo esc_attr( $options['api_password'] ); ?>" autocomplete="off"/>
+						<p class="description">
+							<?php esc_html_e( 'For self-hosted Umami: your Umami admin password.', 'integrate-umami' ); ?>
+						</p>
 					</td>
 				</tr>
 			</table>

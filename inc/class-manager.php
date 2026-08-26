@@ -33,8 +33,7 @@ class Manager {
 				add_action( 'wp_footer', array( $this, 'render_script' ) );
 
 				if ( isset( $options['track_comments'] ) && $options['track_comments'] === 1 ) {
-					// Add filters to add event data attributes.
-					add_filter( 'comment_form_submit_button', array( $this, 'filter_comment_form_submit_button' ), 10, 1 );
+					add_action( 'wp_footer', array( $this, 'render_comment_tracking_script' ) );
 				}
 			}
 		}
@@ -54,32 +53,43 @@ class Manager {
 	}
 
 	/**
-	 * Filter comment submit button to add data attribute.
+	 * Render JavaScript snippet for comment form event tracking.
 	 *
-	 * @param string $submit_button The submit button.
+	 * Replaces the old PHP regex approach (filter_comment_form_submit_button)
+	 * which was fragile and broke with custom themes and comment plugins (#39).
+	 * This JS-based approach dynamically finds the comment form submit button
+	 * at DOM ready, working with native WP comments, wpDiscuz, and most plugins.
 	 *
-	 * @since 0.6.0
-	 * @change 0.8.3 - Fix bug with comment form submit button.
-	 * @change 0.8.3 - Add more meta data attributes.
+	 * @since 0.9.0
 	 */
-	public function filter_comment_form_submit_button( string $submit_button ) {
-		$post_id = get_the_ID();
-
-		$data_attributes = 'data-umami-event="comment" ';
-		if ( $post_id !== false && is_numeric( $post_id ) ) {
-			$post_title = get_the_title( $post_id );
-			if ( strlen( $post_title ) > 50 ) {
-				$post_title = substr( $post_title, 0, 50 ) . '...';
+	public function render_comment_tracking_script() {
+		?>
+		<!-- Integrate Umami: Comment Tracking -->
+		<script>
+		(function() {
+			var selectors = [
+				'#commentform input[type="submit"]',
+				'#commentform button[type="submit"]',
+				'.comment-form input[type="submit"]',
+				'.comment-form button[type="submit"]'
+			];
+			function attachTracking() {
+				for (var i = 0; i < selectors.length; i++) {
+					var btn = document.querySelector(selectors[i]);
+					if (btn && !btn.hasAttribute('data-umami-event')) {
+						btn.setAttribute('data-umami-event', 'comment');
+					}
+				}
 			}
-			$data_attributes .= 'data-umami-event-post-id="' . esc_attr( $post_id ) . '" ';
-			$data_attributes .= 'data-umami-event-post-title="' . esc_attr( $post_title ) . '" ';
-		}
-
-		// Check if $submit button is a "button" element.
-		if ( strpos( $submit_button, '<button' ) !== false ) {
-			return str_replace( '<button', '<input ' . $data_attributes, $submit_button );
-		}
-		return str_replace( '<input', '<input ' . $data_attributes, $submit_button );
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', attachTracking);
+			} else {
+				attachTracking();
+			}
+		})();
+		</script>
+		<!-- /Integrate Umami: Comment Tracking -->
+		<?php
 	}
 
 	/**
@@ -98,26 +108,49 @@ class Manager {
 			return;
 		}
 
-		$umami_options = '';
-		if ( isset( $options['do_not_track'] ) && $options['do_not_track'] === 1 ) {
-			$umami_options .= 'data-do-not-track=true ';
+		// Trim whitespace from critical values (fixes copy-paste issues, #28).
+		$script_url = trim( $options['script_url'] ?? '' );
+		$website_id = trim( $options['website_id'] ?? '' );
+
+		$attrs = array();
+
+		if ( isset( $options['do_not_track'] ) && 1 === $options['do_not_track'] ) {
+			$attrs[] = 'data-do-not-track="true"';
 		}
-		if ( isset( $options['auto_track'] ) && $options['auto_track'] === 0 ) {
-			$umami_options .= 'data-auto-track=false ';
+		if ( isset( $options['auto_track'] ) && 0 === $options['auto_track'] ) {
+			$attrs[] = 'data-auto-track="false"';
 		}
-		if ( isset( $options['cache'] ) && $options['cache'] === 1 ) {
-			$umami_options .= 'data-cache=true ';
+		if ( isset( $options['cache'] ) && 1 === $options['cache'] ) {
+			$attrs[] = 'data-cache="true"';
 		}
-		if ( ! empty( $options['host_url'] ) && isset( $options['use_host_url'] ) && $options['use_host_url'] === 1 ) {
-			$umami_options .= 'data-host-url=' . esc_url( $options['host_url'] );
+		if ( ! empty( $options['host_url'] ) && isset( $options['use_host_url'] ) && 1 === $options['use_host_url'] ) {
+			$attrs[] = 'data-host-url="' . esc_url( trim( $options['host_url'] ) ) . '"';
 		}
+
+		// v3 tracker attributes.
+		if ( ! empty( $options['tag'] ) ) {
+			$attrs[] = 'data-tag="' . esc_attr( trim( $options['tag'] ) ) . '"';
+		}
+		if ( ! empty( $options['domains'] ) ) {
+			$attrs[] = 'data-domains="' . esc_attr( trim( $options['domains'] ) ) . '"';
+		}
+		if ( isset( $options['exclude_search'] ) && 1 === $options['exclude_search'] ) {
+			$attrs[] = 'data-exclude-search="true"';
+		}
+		if ( isset( $options['exclude_hash'] ) && 1 === $options['exclude_hash'] ) {
+			$attrs[] = 'data-exclude-hash="true"';
+		}
+		if ( ! empty( $options['before_send'] ) ) {
+			$attrs[] = 'data-before-send="' . esc_attr( trim( $options['before_send'] ) ) . '"';
+		}
+
+		$extra_attrs = ! empty( $attrs ) ? "\n\t\t\t\t" . implode( "\n\t\t\t\t", $attrs ) : '';
 
 		?>
 		<!-- Integrate Umami -->
 		<script async defer
-				src="<?php echo esc_url( $options['script_url'] ); ?>"
-				data-website-id="<?php esc_attr_e( $options['website_id'] ); ?>"
-				<?php esc_attr_e( $umami_options ); ?>>
+				src="<?php echo esc_url( $script_url ); ?>"
+				data-website-id="<?php echo esc_attr( $website_id ); ?>"<?php echo $extra_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- all values escaped above. ?>>
 		</script>
 		<!-- /Integrate Umami -->
 		<?php

@@ -16,7 +16,10 @@
         "squizlabs/php_codesniffer": "*",
         "dealerdirect/phpcodesniffer-composer-installer": "*",
         "wp-coding-standards/wpcs": "*",
-        "phpcompatibility/php-compatibility": "*"
+        "phpcompatibility/php-compatibility": "*",
+        "phpunit/phpunit": "^9.6",
+        "yoast/phpunit-polyfills": "^2.0",
+        "10up/wp_mock": "^1.0"
     },
     "autoload": {
         "classmap": [
@@ -36,6 +39,8 @@
             "@install-codestandards"
         ],
         "php:lint": "./vendor/bin/phpcs . -s",
-        "php:lint-fix": "./vendor/bin/phpcbf ."
+        "php:lint-fix": "./vendor/bin/phpcbf .",
+        "test": "./vendor/bin/phpunit",
+        "test:unit": "./vendor/bin/phpunit --testsuite unit"
     }
 }
