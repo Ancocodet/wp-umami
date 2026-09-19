@@ -1,6 +1,8 @@
 <?php
 namespace Ancozockt\Umami;
 
+use Ancozockt\Umami\Integrations\WooCommerceIntegration;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -35,6 +37,12 @@ class Manager {
 				if ( isset( $options['track_comments'] ) && $options['track_comments'] === 1 ) {
 					// Add filters to add event data attributes.
 					add_filter( 'comment_form_submit_button', array( $this, 'filter_comment_form_submit_button' ), 10, 1 );
+				}
+
+				if ( function_exists( 'WC' ) ) {
+					if ( isset( $options['track_woocommerce'] ) && $options['track_woocommerce'] === 1 ) {
+						new WooCommerceIntegration();
+					}
 				}
 			}
 		}
