@@ -16,11 +16,40 @@ test.describe('settings page', () => {
         await logout(page);
         await page.goto('/', {waitUntil: 'networkidle'});
 
-        let script = await page.locator("script[src='https://umami.example.com/umami.js']");
-        await expect(script).toHaveAttribute('async');
-        await expect(script).toHaveAttribute('defer');
-        await expect(script).toHaveAttribute('data-website-id', '12345678');
-        await expect(script).toHaveAttribute('data-do-not-track', 'true');
+        await isScriptPresent(page, 'https://umami.example.com/umami.js', '12345678', {'data-do-not-track': 'true'});
+        !page.locator("script[src='https://umami.example.com/recorder.js']")
+    });
+
+    test('enable heatmap', async ({page}) => {
+        await login(page);
+        await switchToSettings(page);
+
+        await page.locator('#integrate_umami_enabled').check();
+        await page.locator('#integrate_umami_script_url').fill('https://umami.example.com/umami.js')
+        await page.locator('#integrate_umami_website_id').fill('12345678')
+        await page.locator('#integrate_umami_heatmap_enabled').check();
+        await page.locator('#integrate_umami_heatmap_url').fill('https://umami.example.com/recorder.js')
+        await page.getByRole('button', {name: 'Save Changes'}).click();
+
+        await logout(page);
+        await page.goto('/', {waitUntil: 'networkidle'});
+
+        await isScriptPresent(page, 'https://umami.example.com/umami.js', '12345678', {'data-do-not-track': 'true'});
+        await isScriptPresent(page, 'https://umami.example.com/recorder.js', '12345678');
+    });
+
+    test('disable heatmap', async ({page}) => {
+        await login(page);
+        await switchToSettings(page);
+
+        await page.locator('#integrate_umami_heatmap_enabled').check();
+        await page.getByRole('button', {name: 'Save Changes'}).click();
+
+        await logout(page);
+        await page.goto('/', {waitUntil: 'networkidle'});
+
+        await isScriptPresent(page, 'https://umami.example.com/umami.js', '12345678', {'data-do-not-track': 'true'});
+        !page.locator("script[src='https://umami.example.com/recorder.js']")
     });
 
     test('disable analytics', async ({page}) => {
@@ -34,6 +63,7 @@ test.describe('settings page', () => {
         await page.goto('/', {waitUntil: 'networkidle'});
 
         !page.locator("script[src='https://umami.example.com/umami.js']")
+        !page.locator("script[src='https://umami.example.com/recorder.js']")
     });
 
     test('migrate from old settings', async ({page}) => {
@@ -106,4 +136,13 @@ async function switchToSettings(page) {
 
     const title = await page.locator('h1').getByText('Integrate Umami Settings')
     await expect(title).toBeVisible()
+}
+
+async function isScriptPresent(page, scriptUrl, websiteId, additionalAttributes = {}) {
+    const script = await page.locator(`script[src='${scriptUrl}']`);
+    await expect(script).toHaveAttribute('defer');
+    await expect(script).toHaveAttribute('data-website-id', websiteId);
+    for (const [key, value] of Object.entries(additionalAttributes)) {
+        await expect(script).toHaveAttribute(key, value);
+    }
 }
