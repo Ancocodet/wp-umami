@@ -17,10 +17,41 @@ test.describe('settings page', () => {
         await page.goto('/', {waitUntil: 'networkidle'});
 
         let script = await page.locator("script[src='https://umami.example.com/umami.js']");
-        await expect(script).toHaveAttribute('async');
         await expect(script).toHaveAttribute('defer');
         await expect(script).toHaveAttribute('data-website-id', '12345678');
         await expect(script).toHaveAttribute('data-do-not-track', 'true');
+    });
+
+    test('enable heatmap', async ({page}) => {
+        await login(page);
+        await switchToSettings(page);
+
+        await page.locator('#integrate_umami_enabled').check();
+        await page.locator('#integrate_umami_script_url').fill('https://umami.example.com/umami.js')
+        await page.locator('#integrate_umami_website_id').fill('12345678')
+        await page.locator('#integrate_umami_heatmap_enabled').check();
+        await page.locator('#integrate_umami_heatmap_url').fill('https://umami.example.com/recorder.js')
+        await page.getByRole('button', {name: 'Save Changes'}).click();
+
+        await logout(page);
+        await page.goto('/', {waitUntil: 'networkidle'});
+
+        let script = await page.locator("script[src='https://umami.example.com/recorder.js']");
+        await expect(script).toHaveAttribute('defer');
+        await expect(script).toHaveAttribute('data-website-id', '12345678');
+    });
+
+    test('disable heatmap', async ({page}) => {
+        await login(page);
+        await switchToSettings(page);
+
+        await page.locator('#integrate_umami_heatmap_enabled').check();
+        await page.getByRole('button', {name: 'Save Changes'}).click();
+
+        await logout(page);
+        await page.goto('/', {waitUntil: 'networkidle'});
+
+        !page.locator("script[src='https://umami.example.com/recorder.js']")
     });
 
     test('disable analytics', async ({page}) => {

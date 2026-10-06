@@ -126,16 +126,18 @@ class Settings {
 		}
 
 		return array(
-			'enabled'        => (int) ( $data['enabled'] ?? false ),
-			'script_url'     => esc_url_raw( $data['script_url'] ),
-			'website_id'     => sanitize_text_field( $data['website_id'] ),
-			'host_url'       => esc_url_raw( $data['host_url'] ),
-			'use_host_url'   => (int) ( $data['use_host_url'] ?? false ),
-			'ignore_admins'  => (int) ( $data['ignore_admins'] ?? false ),
-			'auto_track'     => (int) ( $data['auto_track'] ?? false ),
-			'do_not_track'   => (int) ( $data['do_not_track'] ?? false ),
-			'cache'          => (int) ( $data['cache'] ?? false ),
-			'track_comments' => (int) ( $data['track_comments'] ?? false ),
+			'enabled'         => (int) ( $data['enabled'] ?? false ),
+			'script_url'      => esc_url_raw( $data['script_url'] ),
+			'website_id'      => sanitize_text_field( $data['website_id'] ),
+			'host_url'        => esc_url_raw( $data['host_url'] ),
+			'use_host_url'    => (int) ( $data['use_host_url'] ?? false ),
+			'ignore_admins'   => (int) ( $data['ignore_admins'] ?? false ),
+			'auto_track'      => (int) ( $data['auto_track'] ?? false ),
+			'do_not_track'    => (int) ( $data['do_not_track'] ?? false ),
+			'cache'           => (int) ( $data['cache'] ?? false ),
+			'track_comments'  => (int) ( $data['track_comments'] ?? false ),
+			'heatmap_enabled' => (int) ( $data['heatmap_enabled'] ?? false ),
+			'heatmap_url'     => esc_url_raw( $data['heatmap_url'] ),
 		);
 	}
 

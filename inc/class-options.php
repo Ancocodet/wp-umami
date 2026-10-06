@@ -26,16 +26,18 @@ class Options {
 		return wp_parse_args(
 			get_option( 'integrate_umami_options' ),
 			array(
-				'enabled'        => 0,
-				'script_url'     => '',
-				'host_url'       => '',
-				'website_id'     => '',
-				'use_host_url'   => 0,
-				'ignore_admins'  => 1,
-				'auto_track'     => 1,
-				'do_not_track'   => 1,
-				'cache'          => 0,
-				'track_comments' => 0,
+				'enabled'         => 0,
+				'script_url'      => '',
+				'host_url'        => '',
+				'website_id'      => '',
+				'use_host_url'    => 0,
+				'ignore_admins'   => 1,
+				'auto_track'      => 1,
+				'do_not_track'    => 1,
+				'cache'           => 0,
+				'track_comments'  => 0,
+				'heatmap_enabled' => 0,
+				'heatmap_url'     => '',
 			)
 		);
 	}
