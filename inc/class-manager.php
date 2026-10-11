@@ -114,12 +114,23 @@ class Manager {
 
 		?>
 		<!-- Integrate Umami -->
-		<script async defer
+		<script defer
 				src="<?php echo esc_url( $options['script_url'] ); ?>"
 				data-website-id="<?php esc_attr_e( $options['website_id'] ); ?>"
 				<?php esc_attr_e( $umami_options ); ?>>
 		</script>
 		<!-- /Integrate Umami -->
 		<?php
+
+		if ( isset( $options['heatmap_enabled'] ) && $options['heatmap_enabled'] === 1 && ! empty( $options['heatmap_url'] ) ) {
+			?>
+			<!-- Integrate Umami Heatmap -->
+			<script defer
+					src="<?php echo esc_url( $options['heatmap_url'] ); ?>"
+					data-website-id="<?php esc_attr_e( $options['website_id'] ); ?>">
+			</script>
+			<!-- /Integrate Umami Heatmap -->
+			<?php
+		}
 	}
 }
