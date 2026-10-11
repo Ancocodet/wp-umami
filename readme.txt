@@ -1,7 +1,7 @@
 === Integrate Umami ===
 Contributors: ancocodet
 Tags: analytics,umami
-Stable tag: 0.8.3
+Stable tag: 0.9.0
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -55,6 +55,9 @@ This release fixes an issue with the update from 0.5.0 to 0.6.0. The update proc
 Issues with the settings page were fixed and the overall feeling of the page was improved as well.
 
 == Changelog ==
+
+= 0.9.0 =
+* Added an option to enable the heatmap tracking for the website
 
 = 0.8.3 =
 * Fixed an issue with the comment tracking

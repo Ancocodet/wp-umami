@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Integrate Umami
  * Description: Integration for Umami Analytics
- * Version: 0.8.3
+ * Version: 0.9.0
  * Author: Ancocodet
  * Author URI: https://ancozockt.de
  * Plugin URI: https://github.com/Ancocodet/wp-umami
